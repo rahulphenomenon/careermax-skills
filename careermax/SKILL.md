@@ -1,6 +1,6 @@
 ---
 name: careermax
-description: All the tools you need to land your next job. Use when the user wants to track job applications, review their resume, write cover letters, prep for interviews, find referrals, or identify skill gaps.
+description: CareerMax (careermax.ai) gives you all the tools you need to land your next job. Use when the user wants to track job applications, review their resume, write cover letters, prep for interviews, find referrals, or identify skill gaps.
 version: 0.1.2
 metadata:
   openclaw:
