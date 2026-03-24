@@ -1,7 +1,7 @@
 ---
 name: careermax
-description: Careermax (careermax.ai) — all the tools to land the user's next job. Use when the user wants to track job applications, review their resume, write cover letters, prep for interviews, find referrals, or identify skill gaps.
-version: 0.1.2
+description: Careermax (careermax.ai) — the AI job search toolkit. Use when the user wants to track job applications, review their resume, write cover letters, prep for interviews, find referrals, or identify skill gaps.
+version: 0.1.3
 metadata:
   openclaw:
     requires:
@@ -13,49 +13,49 @@ metadata:
     homepage: https://careermax.ai
 ---
 
-# Careermax Agent Toolkit
+# Careermax — the AI job search toolkit
 
-All the tools you need to land your next job — powered by AI.
+Track applications, review resumes, write cover letters, prep for interviews, find referrals, and close skill gaps — all from your terminal. Powered by [careermax.ai](https://careermax.ai).
 
 ## Setup
 
-1. Get an API key from [Careermax Settings](https://careermax.ai/dashboard/settings/api-keys)
+1. Get an API key from [careermax.ai/dashboard/settings/api-keys](https://careermax.ai/dashboard/settings/api-keys)
 2. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
 
-## What You Can Do
+## What you can do
 
-### Job Pipeline Tracker
-Track applications through your pipeline — add roles, update statuses, view your board.
+### Job pipeline
+Track applications — add roles, update statuses, view your board.
 - `jobs_list` — List all jobs, filter by status (Watchlist, Applied, Screening, Interviewing, Received Offer, Rejected, Accepted)
 - `jobs_get` — Get full details for a specific job
 - `jobs_add` — Add a new job (preview/confirm)
 - `jobs_update` — Update status, notes, or other fields (preview/confirm)
 
-### Resume Reviewer
+### Resume review
 Get AI feedback on your resume and optimize specific sections.
 - `resume_get` — View your current resume
 - `resume_review` — AI resume analysis, optionally tailored to a job (1 credit)
 - `resume_optimize` — Optimize a specific resume section (1 credit)
 
-### Cover Letter Writer
+### Cover letters
 Generate tailored cover letters that match your resume to job applications.
 - `cover_letter_generate` — Generate a cover letter for a specific job (1 credit)
 
-### Interview Prep
+### Interview prep
 Mock interviews, company research, and feedback from past practice.
 - `interviews_list` — List past and upcoming sessions
 - `interviews_feedback` — Detailed AI feedback from a session
-- `interviews_create` — Create a mock interview (free to create, credits on Start)
+- `interviews_create` — Create a mock interview (free to create, credits on start)
 - `company_prep_get` — View existing company research
 - `company_prep_generate` — Generate a company research brief (5 credits)
 
-### Referral Finder
+### Referral finder
 Find potential referrals and draft personalized outreach messages.
 - `mentors_search` — Search for referrals at a target company (1 credit)
 - `mentors_bookmarks` — View bookmarked contacts
 - `outreach_generate` — Draft a personalized outreach message (1 credit)
 
-### Skill Gap Analysis
+### Skill gap analysis
 Learning plans, resources, and quizzes for target roles.
 - `learning_plan` — View your personalized learning plan
 - `learning_quizzes` — List past quiz sessions and scores
@@ -66,10 +66,10 @@ Learning plans, resources, and quizzes for target roles.
 - `careermax_info` — Overview of capabilities and account
 - `credits_get` — Check credit balance and plan tier
 
-## How It Works
+## How it works
 
-1. The skill connects to Careermax via the `@careermax/agent-toolkit` MCP server
-2. Read operations are instant. Write operations use preview/confirm — you see a summary before anything changes.
+1. This skill connects to careermax.ai via the `@careermax/agent-toolkit` MCP server
+2. Read operations are free. Write operations use preview/confirm — you see a summary and credit cost before anything executes.
 3. All AI processing happens server-side on the same backend as the Careermax web app.
 
 ## Usage
