@@ -13,18 +13,18 @@ metadata:
     homepage: https://careermax.ai
 ---
 
-# CareerMax Skill Gap Analysis
+# Careermax Skill Gap Analysis
 
 Identify skill gaps for your target roles, get personalized learning plans, curated resources, and skill quizzes.
 
 ## Setup
 
-1. Get an API key from [CareerMax Settings](https://careermax.ai/dashboard/settings/api-keys)
+1. Get an API key from [Careermax Settings](https://careermax.ai/dashboard/settings/api-keys)
 2. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
 
 ## How It Works
 
-1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
+1. The skill connects to Careermax via the `@careermax/agent-toolkit` MCP server
 2. View your personalized learning plan based on your profile and target roles
 3. Generate curated learning resources for specific topics or skill areas
 4. Take quizzes to test your knowledge and track progress over time

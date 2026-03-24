@@ -13,18 +13,18 @@ metadata:
     homepage: https://careermax.ai
 ---
 
-# CareerMax Interview Prep
+# Careermax Interview Prep
 
 Prepare for interviews with AI mock sessions, company research, and feedback from past practice.
 
 ## Setup
 
-1. Get an API key from [CareerMax Settings](https://careermax.ai/dashboard/settings/api-keys)
+1. Get an API key from [Careermax Settings](https://careermax.ai/dashboard/settings/api-keys)
 2. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
 
 ## How It Works
 
-1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
+1. The skill connects to Careermax via the `@careermax/agent-toolkit` MCP server
 2. You can create mock interview sessions for specific roles and companies — this returns a URL you open in the browser to start the voice interview
 3. Company prep generates research briefs with key facts, culture insights, and likely interview topics
 4. Review feedback from past interview sessions to track improvement

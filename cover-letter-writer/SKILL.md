@@ -13,18 +13,18 @@ metadata:
     homepage: https://careermax.ai
 ---
 
-# CareerMax Cover Letter Writer
+# Careermax Cover Letter Writer
 
 Generate tailored cover letters that match your resume to specific job applications.
 
 ## Setup
 
-1. Get an API key from [CareerMax Settings](https://careermax.ai/dashboard/settings/api-keys)
+1. Get an API key from [Careermax Settings](https://careermax.ai/dashboard/settings/api-keys)
 2. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
 
 ## How It Works
 
-1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
+1. The skill connects to Careermax via the `@careermax/agent-toolkit` MCP server
 2. It auto-fetches your stored resume — no need to paste it
 3. You provide the job description or a job ID from your pipeline
 4. AI generates a tailored cover letter matching your experience to the role

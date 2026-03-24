@@ -13,18 +13,18 @@ metadata:
     homepage: https://careermax.ai
 ---
 
-# CareerMax Referral Finder
+# Careermax Referral Finder
 
 Find potential referrals at target companies and draft personalized outreach messages.
 
 ## Setup
 
-1. Get an API key from [CareerMax Settings](https://careermax.ai/dashboard/settings/api-keys)
+1. Get an API key from [Careermax Settings](https://careermax.ai/dashboard/settings/api-keys)
 2. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
 
 ## How It Works
 
-1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
+1. The skill connects to Careermax via the `@careermax/agent-toolkit` MCP server
 2. Search for potential referrals at a target company — AI finds relevant people based on your profile and target role
 3. View your bookmarked contacts from previous searches
 4. Generate personalized outreach messages tailored to the recipient and your background

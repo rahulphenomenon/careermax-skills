@@ -1,6 +1,6 @@
-# CareerMax Skills
+# Careermax Skills
 
-Agent skills for [CareerMax](https://careermax.ai) — all the tools you need to land your next job.
+Agent skills for [Careermax](https://careermax.ai) — all the tools you need to land your next job.
 
 ## Skills
 
@@ -15,7 +15,7 @@ Agent skills for [CareerMax](https://careermax.ai) — all the tools you need to
 
 ## Setup
 
-1. Get an API key from [CareerMax Settings](https://careermax.ai/dashboard/settings/api-keys)
+1. Get an API key from [Careermax Settings](https://careermax.ai/dashboard/settings/api-keys)
 2. Set the environment variable:
    ```sh
    export CAREERMAX_API_KEY="cmx_live_..."
@@ -32,6 +32,6 @@ Agent skills for [CareerMax](https://careermax.ai) — all the tools you need to
 
 ## How it works
 
-Each skill connects to CareerMax via the [`@careermax/agent-toolkit`](https://www.npmjs.com/package/@careermax/agent-toolkit) MCP server. All processing happens server-side on the same backend as the CareerMax web app. Your data stays in your account.
+Each skill connects to Careermax via the [`@careermax/agent-toolkit`](https://www.npmjs.com/package/@careermax/agent-toolkit) MCP server. All processing happens server-side on the same backend as the Careermax web app. Your data stays in your account.
 
 Read operations are free. Write operations use a preview/confirm pattern — you see a summary and credit cost before anything executes.

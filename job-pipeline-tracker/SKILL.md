@@ -13,18 +13,18 @@ metadata:
     homepage: https://careermax.ai
 ---
 
-# CareerMax Job Pipeline Tracker
+# Careermax Job Pipeline Tracker
 
 Track job applications through your career pipeline — add new roles, update statuses, and view your full job board.
 
 ## Setup
 
-1. Get an API key from [CareerMax Settings](https://careermax.ai/dashboard/settings/api-keys)
+1. Get an API key from [Careermax Settings](https://careermax.ai/dashboard/settings/api-keys)
 2. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
 
 ## How It Works
 
-1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
+1. The skill connects to Careermax via the `@careermax/agent-toolkit` MCP server
 2. You can list all jobs, filter by status, add new jobs, and update existing ones
 3. Write operations use a preview/confirm pattern — you'll see a summary before anything changes
 
