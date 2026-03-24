@@ -1,6 +1,6 @@
 ---
 name: careermax-resume-reviewer
-description: Get AI-powered resume feedback and optimization. Use when the user says "review my resume", "improve my resume", "optimize my resume", "what's wrong with my resume", or wants resume advice.
+description: Careermax (careermax.ai) — AI-powered resume feedback and optimization. Use when the user says "review my resume", "improve my resume", "optimize my resume", "what's wrong with my resume", or wants resume advice.
 version: 0.1.1
 metadata:
   openclaw:

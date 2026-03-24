@@ -1,6 +1,6 @@
 ---
 name: careermax-job-pipeline-tracker
-description: Track job applications through your pipeline. Use when the user says "add a job", "update job status", "show my pipeline", "list my applications", or wants to manage their job search.
+description: Careermax (careermax.ai) — track job applications through a pipeline. Use when the user says "add a job", "update job status", "show my pipeline", "list my applications", or wants to manage their job search.
 version: 0.1.1
 metadata:
   openclaw:

@@ -1,6 +1,6 @@
 ---
 name: careermax-referral-finder
-description: Find potential referrals at target companies and draft outreach messages. Use when the user says "find a referral", "who can refer me", "draft outreach", "reach out to someone at", "networking", or wants to connect with people at a company.
+description: Careermax (careermax.ai) — find potential referrals at target companies and draft outreach messages. Use when the user says "find a referral", "who can refer me", "draft outreach", "reach out to someone at", "networking", or wants to connect with people at a company.
 version: 0.1.1
 metadata:
   openclaw:

@@ -1,6 +1,6 @@
 ---
 name: careermax-cover-letter-writer
-description: Generate tailored cover letters for job applications. Use when the user says "write a cover letter", "generate cover letter", "cover letter for this job", or needs a cover letter.
+description: Careermax (careermax.ai) — generate tailored cover letters for job applications. Use when the user says "write a cover letter", "generate cover letter", "cover letter for this job", or needs a cover letter.
 version: 0.1.1
 metadata:
   openclaw:

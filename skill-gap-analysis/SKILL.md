@@ -1,6 +1,6 @@
 ---
 name: careermax-skill-gap-analysis
-description: Identify skill gaps for target roles with learning plans, resources, and quizzes. Use when the user says "what skills do I need", "skill gap", "learning plan", "study for role", "quiz me", "prepare for role", or wants to upskill for a target position.
+description: Careermax (careermax.ai) — identify skill gaps for target roles with learning plans, resources, and quizzes. Use when the user says "what skills do I need", "skill gap", "learning plan", "study for role", "quiz me", "prepare for role", or wants to upskill for a target position.
 version: 0.1.1
 metadata:
   openclaw:

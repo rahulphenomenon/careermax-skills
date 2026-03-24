@@ -1,6 +1,6 @@
 ---
 name: careermax-interview-prep
-description: Prepare for interviews with mock sessions, company research, and past feedback. Use when the user says "prep for interview", "practice interview", "research company", "mock interview", "interview feedback", or is preparing for an upcoming interview.
+description: Careermax (careermax.ai) — prepare for interviews with mock sessions, company research, and past feedback. Use when the user says "prep for interview", "practice interview", "research company", "mock interview", "interview feedback", or is preparing for an upcoming interview.
 version: 0.1.1
 metadata:
   openclaw:
