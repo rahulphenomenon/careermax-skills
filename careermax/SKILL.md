@@ -1,6 +1,6 @@
 ---
 name: careermax
-description: Careermax (careermax.ai) — the AI job search toolkit. Use when the user wants to track job applications, review their resume, write cover letters, prep for interviews, find referrals, or identify skill gaps.
+description: CareerMax AI (careermax.ai) — the AI job search toolkit. Use when the user wants to track job applications, review their resume, write cover letters, prep for interviews, find referrals, or identify skill gaps.
 version: 0.1.3
 metadata:
   openclaw:
@@ -10,17 +10,18 @@ metadata:
       bins:
         - npx
     primaryEnv: CAREERMAX_API_KEY
-    homepage: https://careermax.ai
+    homepage: https://careermax.ai/ai-agent
 ---
 
-# Careermax — the AI job search toolkit
+# CareerMax — the AI job search toolkit
 
 Track applications, review resumes, write cover letters, prep for interviews, find referrals, and close skill gaps — all from your terminal. Powered by [careermax.ai](https://careermax.ai).
 
 ## Setup
 
-1. Get an API key from [careermax.ai/dashboard/settings/api-keys](https://careermax.ai/dashboard/settings/api-keys)
-2. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
+1. Sign in to CareerMax and open Settings > API Keys.
+2. Create a new API key and copy it. The key starts with `cmx_live_` and is shown only once.
+3. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
 
 ## What you can do
 
@@ -68,9 +69,9 @@ Learning plans, resources, and quizzes for target roles.
 
 ## How it works
 
-1. This skill connects to careermax.ai via the `@careermax/agent-toolkit` MCP server
+1. This skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
 2. Read operations are free. Write operations use preview/confirm — you see a summary and credit cost before anything executes.
-3. All AI processing happens server-side on the same backend as the Careermax web app.
+3. All AI processing happens server-side on the same backend as the CareerMax web app.
 
 ## Usage
 
