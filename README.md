@@ -1,6 +1,8 @@
-# Careermax Skills
+# CareerMax Skills
 
-Agent skills for [Careermax](https://careermax.ai) — all the tools you need to land your next job.
+Agent skills for [CareerMax AI](https://careermax.ai) — all the tools you need to land your next job.
+
+Use CareerMax with AI agents like Claude Code, Codex, Gemini CLI, and OpenClaw to search jobs, track applications, review resumes, write cover letters, prepare for interviews, find referrals, and close skill gaps.
 
 ## Skills
 
@@ -15,12 +17,13 @@ Agent skills for [Careermax](https://careermax.ai) — all the tools you need to
 
 ## Setup
 
-1. Get an API key from [Careermax Settings](https://careermax.ai/dashboard/settings/api-keys)
-2. Set the environment variable:
+1. Sign in to CareerMax and open Settings > API Keys.
+2. Create a new API key and copy it. The key starts with `cmx_live_` and is shown only once.
+3. Set the environment variable:
    ```sh
    export CAREERMAX_API_KEY="cmx_live_..."
    ```
-3. Install any skill above, or install them all:
+4. Install any skill above, or install them all:
    ```sh
    npx skills add rahulphenomenon/careermax-skills/job-pipeline-tracker
    npx skills add rahulphenomenon/careermax-skills/resume-reviewer
@@ -30,8 +33,13 @@ Agent skills for [Careermax](https://careermax.ai) — all the tools you need to
    npx skills add rahulphenomenon/careermax-skills/skill-gap-analysis
    ```
 
+## AI Agent Guides
+
+- [CareerMax AI agent guide](https://careermax.ai/ai-agent): use CareerMax with Claude Code, Codex, Gemini CLI, and other agent tools.
+- [CareerMax OpenClaw guide](https://careermax.ai/openclaw): install CareerMax as an OpenClaw skill and run job-search workflows from your agent.
+
 ## How it works
 
-Each skill connects to Careermax via the [`@careermax/agent-toolkit`](https://www.npmjs.com/package/@careermax/agent-toolkit) MCP server. All processing happens server-side on the same backend as the Careermax web app. Your data stays in your account.
+Each skill connects to CareerMax via the [`@careermax/agent-toolkit`](https://www.npmjs.com/package/@careermax/agent-toolkit) MCP server. All processing happens server-side on the same backend as the CareerMax web app. Your data stays in your account.
 
 Read operations are free. Write operations use a preview/confirm pattern — you see a summary and credit cost before anything executes.

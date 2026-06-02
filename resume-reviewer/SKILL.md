@@ -1,6 +1,6 @@
 ---
 name: careermax-resume-reviewer
-description: Careermax (careermax.ai) — AI-powered resume feedback and optimization. Use when the user says "review my resume", "improve my resume", "optimize my resume", "what's wrong with my resume", or wants resume advice.
+description: CareerMax AI (careermax.ai) — AI-powered resume feedback and optimization. Use when the user says "review my resume", "improve my resume", "optimize my resume", "what's wrong with my resume", or wants resume advice.
 version: 0.1.1
 metadata:
   openclaw:
@@ -10,22 +10,23 @@ metadata:
       bins:
         - npx
     primaryEnv: CAREERMAX_API_KEY
-    homepage: https://careermax.ai
+    homepage: https://careermax.ai/ai-agent
 ---
 
-# Careermax Resume Reviewer
+# CareerMax Resume Reviewer
 
 Get AI-powered feedback on your resume and optimize specific sections for target roles.
 
 ## Setup
 
-1. Get an API key from [Careermax Settings](https://careermax.ai/dashboard/settings/api-keys)
-2. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
+1. Sign in to CareerMax and open Settings > API Keys.
+2. Create a new API key and copy it. The key starts with `cmx_live_` and is shown only once.
+3. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
 
 ## How It Works
 
-1. The skill connects to Careermax via the `@careermax/agent-toolkit` MCP server
-2. It reads your stored resume from Careermax — no need to upload anything
+1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
+2. It reads your stored resume from CareerMax — no need to upload anything
 3. AI analyzes your resume and provides structured feedback on content, formatting, and impact
 4. You can also optimize specific text sections with targeted suggestions
 

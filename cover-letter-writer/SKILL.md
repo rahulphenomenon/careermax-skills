@@ -1,6 +1,6 @@
 ---
 name: careermax-cover-letter-writer
-description: Careermax (careermax.ai) — generate tailored cover letters for job applications. Use when the user says "write a cover letter", "generate cover letter", "cover letter for this job", or needs a cover letter.
+description: CareerMax AI (careermax.ai) — generate tailored cover letters for job applications. Use when the user says "write a cover letter", "generate cover letter", "cover letter for this job", or needs a cover letter.
 version: 0.1.1
 metadata:
   openclaw:
@@ -10,21 +10,22 @@ metadata:
       bins:
         - npx
     primaryEnv: CAREERMAX_API_KEY
-    homepage: https://careermax.ai
+    homepage: https://careermax.ai/ai-agent
 ---
 
-# Careermax Cover Letter Writer
+# CareerMax Cover Letter Writer
 
 Generate tailored cover letters that match your resume to specific job applications.
 
 ## Setup
 
-1. Get an API key from [Careermax Settings](https://careermax.ai/dashboard/settings/api-keys)
-2. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
+1. Sign in to CareerMax and open Settings > API Keys.
+2. Create a new API key and copy it. The key starts with `cmx_live_` and is shown only once.
+3. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
 
 ## How It Works
 
-1. The skill connects to Careermax via the `@careermax/agent-toolkit` MCP server
+1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
 2. It auto-fetches your stored resume — no need to paste it
 3. You provide the job description or a job ID from your pipeline
 4. AI generates a tailored cover letter matching your experience to the role

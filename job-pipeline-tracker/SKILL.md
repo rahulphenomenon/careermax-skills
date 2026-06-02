@@ -1,6 +1,6 @@
 ---
 name: careermax-job-pipeline-tracker
-description: Careermax (careermax.ai) — track job applications through a pipeline. Use when the user says "add a job", "update job status", "show my pipeline", "list my applications", or wants to manage their job search.
+description: CareerMax AI (careermax.ai) — track job applications through a pipeline. Use when the user says "add a job", "update job status", "show my pipeline", "list my applications", or wants to manage their job search.
 version: 0.1.1
 metadata:
   openclaw:
@@ -10,21 +10,22 @@ metadata:
       bins:
         - npx
     primaryEnv: CAREERMAX_API_KEY
-    homepage: https://careermax.ai
+    homepage: https://careermax.ai/ai-agent
 ---
 
-# Careermax Job Pipeline Tracker
+# CareerMax Job Pipeline Tracker
 
 Track job applications through your career pipeline — add new roles, update statuses, and view your full job board.
 
 ## Setup
 
-1. Get an API key from [Careermax Settings](https://careermax.ai/dashboard/settings/api-keys)
-2. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
+1. Sign in to CareerMax and open Settings > API Keys.
+2. Create a new API key and copy it. The key starts with `cmx_live_` and is shown only once.
+3. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
 
 ## How It Works
 
-1. The skill connects to Careermax via the `@careermax/agent-toolkit` MCP server
+1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
 2. You can list all jobs, filter by status, add new jobs, and update existing ones
 3. Write operations use a preview/confirm pattern — you'll see a summary before anything changes
 
