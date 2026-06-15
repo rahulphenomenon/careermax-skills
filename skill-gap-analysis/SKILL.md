@@ -1,7 +1,7 @@
 ---
 name: careermax-skill-gap-analysis
-description: CareerMax AI (careermax.ai) — identify skill gaps for target roles with learning plans, resources, and quizzes. Use when the user says "what skills do I need", "skill gap", "learning plan", "study for role", "quiz me", "prepare for role", or wants to upskill for a target position.
-version: 0.1.1
+description: Identify skill gaps for target roles with learning plans, resources, and quizzes. Use when the user says "what skills do I need", "skill gap", "learning plan", "study for role", "quiz me", "prepare for role", or wants to upskill for a target position.
+version: 0.2.0
 metadata:
   openclaw:
     requires:
@@ -10,42 +10,30 @@ metadata:
       bins:
         - npx
     primaryEnv: CAREERMAX_API_KEY
-    homepage: https://careermax.ai/ai-agent
+    homepage: https://careermax.ai
 ---
 
 # CareerMax Skill Gap Analysis
 
-Identify skill gaps for your target roles, get personalized learning plans, curated resources, and skill quizzes.
+Use the primary `careermax` skill for shared conversation, security, confirmation,
+and error-recovery rules.
 
-## Setup
+## Workflow
 
-1. Sign in to CareerMax and open Settings > API Keys.
-2. Create a new API key and copy it. The key starts with `cmx_live_` and is shown only once.
-3. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
+1. Clarify the role the user is preparing for.
+2. Use `get_learning_plan` to review an existing plan when available.
+3. Use `generate_learning_resources` for role-focused resources.
+4. Use `generate_quiz` when the user wants to test themselves, and
+   `list_quiz_sessions` to review prior results.
 
-## How It Works
+Explain recommendations in terms of the user's target role and avoid presenting
+a generated quiz score as a formal credential.
 
-1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
-2. View your personalized learning plan based on your profile and target roles
-3. Generate curated learning resources for specific topics or skill areas
-4. Take quizzes to test your knowledge and track progress over time
-
-## Tools
-
-- `learning_plan` — View your personalized learning plan based on target roles
-- `learning_quizzes` — List past quiz sessions and scores
-- `learning_resources` — Generate curated learning resources for a topic (costs 5 credits, preview/confirm)
-- `learning_quiz` — Generate a skill quiz on a specific topic (costs 1 credit, preview/confirm)
-
-## Usage
+## CLI
 
 ```bash
-# Install the MCP server
-npx @careermax/agent-toolkit mcp
-
-# Or use the CLI directly
 npx @careermax/agent-toolkit learning plan
-npx @careermax/agent-toolkit learning resources --topic "system design"
-npx @careermax/agent-toolkit learning quiz --topic "distributed systems"
+npx @careermax/agent-toolkit learning resources --role "Software Engineer"
+npx @careermax/agent-toolkit learning quiz --role "Software Engineer" --company Stripe
 npx @careermax/agent-toolkit learning quizzes
 ```

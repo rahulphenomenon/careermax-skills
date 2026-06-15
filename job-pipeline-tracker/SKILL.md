@@ -1,7 +1,7 @@
 ---
 name: careermax-job-pipeline-tracker
-description: CareerMax AI (careermax.ai) — track job applications through a pipeline. Use when the user says "add a job", "update job status", "show my pipeline", "list my applications", or wants to manage their job search.
-version: 0.1.1
+description: Track job applications through your pipeline. Use when the user says "add a job", "update job status", "show my pipeline", "list my applications", or wants to manage their job search.
+version: 0.2.0
 metadata:
   openclaw:
     requires:
@@ -10,40 +10,30 @@ metadata:
       bins:
         - npx
     primaryEnv: CAREERMAX_API_KEY
-    homepage: https://careermax.ai/ai-agent
+    homepage: https://careermax.ai
 ---
 
 # CareerMax Job Pipeline Tracker
 
-Track job applications through your career pipeline — add new roles, update statuses, and view your full job board.
+Use the primary `careermax` skill for shared conversation, security, confirmation,
+and error-recovery rules.
 
-## Setup
+## Workflows
 
-1. Sign in to CareerMax and open Settings > API Keys.
-2. Create a new API key and copy it. The key starts with `cmx_live_` and is shown only once.
-3. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
+- Use `list_jobs` to show pipeline records and `get_job` for full details.
+- Use `add_job` to save a role the user is tracking.
+- Use `update_job` to change a saved role's status, notes, company, title, or link.
 
-## How It Works
+Adding or updating a pipeline record is a lasting action. First call the tool
+without a confirmation token. Show the returned details and ask whether to save
+that exact record or change. Only repeat the call with its `confirmationToken`
+after the user agrees. Never interpret "tell me about this role" as "save this
+role," and never imply that CareerMax applied to the role.
 
-1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
-2. You can list all jobs, filter by status, add new jobs, and update existing ones
-3. Write operations use a preview/confirm pattern — you'll see a summary before anything changes
-
-## Tools
-
-- `jobs_list` — List all jobs in your pipeline, optionally filter by status (Watchlist, Applied, Screening, Interviewing, Received Offer, Rejected, Accepted)
-- `jobs_get` — Get full details for a specific job
-- `jobs_add` — Add a new job to your pipeline (preview/confirm)
-- `jobs_update` — Update a job's status, notes, or other fields (preview/confirm)
-
-## Usage
+## CLI
 
 ```bash
-# Install the MCP server
-npx @careermax/agent-toolkit mcp
-
-# Or use the CLI directly
-npx @careermax/agent-toolkit jobs list
-npx @careermax/agent-toolkit jobs list --status applied
-npx @careermax/agent-toolkit jobs add --description "Senior SWE" --company Stripe --role "Senior Software Engineer"
+npx @careermax/agent-toolkit jobs list --status Applied
+npx @careermax/agent-toolkit jobs add --description "Senior SWE role" --company Stripe --role "Senior Software Engineer"
+npx @careermax/agent-toolkit jobs update <id> --status Interviewing
 ```

@@ -1,7 +1,7 @@
 ---
 name: careermax-referral-finder
-description: CareerMax AI (careermax.ai) — find potential referrals at target companies and draft outreach messages. Use when the user says "find a referral", "who can refer me", "draft outreach", "reach out to someone at", "networking", or wants to connect with people at a company.
-version: 0.1.1
+description: Find potential referrals at target companies and draft outreach messages. Use when the user says "find a referral", "who can refer me", "draft outreach", "reach out to someone at", "networking", or wants to connect with people at a company.
+version: 0.2.0
 metadata:
   openclaw:
     requires:
@@ -10,40 +10,28 @@ metadata:
       bins:
         - npx
     primaryEnv: CAREERMAX_API_KEY
-    homepage: https://careermax.ai/ai-agent
+    homepage: https://careermax.ai
 ---
 
 # CareerMax Referral Finder
 
-Find potential referrals at target companies and draft personalized outreach messages.
+Use the primary `careermax` skill for shared conversation, security, confirmation,
+and error-recovery rules.
 
-## Setup
+## Workflow
 
-1. Sign in to CareerMax and open Settings > API Keys.
-2. Create a new API key and copy it. The key starts with `cmx_live_` and is shown only once.
-3. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
+1. Clarify the target company and the kind of contact the user wants.
+2. Use `search_mentors`, or `list_bookmarked_mentors` for saved contacts.
+3. Let the user choose a relevant person.
+4. Use `generate_outreach` with that person's name, title, and company, plus
+   the user's goal. Return a draft for the user to edit and send themselves.
 
-## How It Works
+Do not claim CareerMax contacted anyone or secured a referral.
 
-1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
-2. Search for potential referrals at a target company — AI finds relevant people based on your profile and target role
-3. View your bookmarked contacts from previous searches
-4. Generate personalized outreach messages tailored to the recipient and your background
-
-## Tools
-
-- `mentors_search` — Search for potential referrals at a target company (costs 1 credit, preview/confirm)
-- `mentors_bookmarks` — View your bookmarked contacts from previous searches
-- `outreach_generate` — Draft a personalized outreach message to a specific contact (costs 1 credit, preview/confirm)
-
-## Usage
+## CLI
 
 ```bash
-# Install the MCP server
-npx @careermax/agent-toolkit mcp
-
-# Or use the CLI directly
 npx @careermax/agent-toolkit mentors search --company Stripe --role "Software Engineer"
 npx @careermax/agent-toolkit mentors bookmarks
-npx @careermax/agent-toolkit outreach generate --mentor-id <id>
+npx @careermax/agent-toolkit outreach generate --mentor-name "Avery Chen" --mentor-title "Engineering Manager" --mentor-company Stripe --type referral --user-role "Software Engineer"
 ```

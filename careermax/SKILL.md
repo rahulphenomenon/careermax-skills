@@ -1,7 +1,7 @@
 ---
 name: careermax
-description: CareerMax AI (careermax.ai) — the AI job search toolkit. Use when the user wants to track job applications, review their resume, write cover letters, prep for interviews, find referrals, or identify skill gaps.
-version: 0.1.3
+description: Use CareerMax when the user wants to review their career context, manage their job pipeline, improve career materials, prepare for interviews, find referrals, or build skills.
+version: 0.2.0
 metadata:
   openclaw:
     requires:
@@ -13,76 +13,55 @@ metadata:
     homepage: https://careermax.ai/ai-agent
 ---
 
-# CareerMax — the AI job search toolkit
+# CareerMax
 
-Track applications, review resumes, write cover letters, prep for interviews, find referrals, and close skill gaps — all from your terminal. Powered by [careermax.ai](https://careermax.ai).
+Use the CareerMax MCP tools to work with the user's connected CareerMax account.
+
+## Conversation Rules
+
+- Ask only for information needed by the selected tool.
+- Read-only requests and clearly requested draft generation can proceed directly.
+- Do not announce credit usage in normal responses. Use `get_credits` or
+  `get_action_costs` when the user asks. Explain required and available balance
+  when insufficient credits block a request.
+- Before creating or changing a lasting CareerMax record, show the important
+  details in plain language and ask the user to confirm.
+- For `add_job` and `update_job`, call once without `confirmationToken`, show the
+  returned details, and repeat the exact request with the returned token only
+  after the user confirms.
+- For `create_interview_session`, call once without `confirmationToken`, show
+  the role, company, mode, duration, and round, and repeat the exact request
+  with the returned token only after the user confirms.
+- If CareerMax says a confirmation expired or does not match, show the current
+  details and ask again. Never rewrite or guess the intended action.
+- Never expose, repeat, or log the user's API key.
+
+## Supported Workflows
+
+- Account: `careermax_info`, `get_profile`, `get_credits`, `get_action_costs`
+- Pipeline: `list_jobs`, `get_job`, `add_job`, `update_job`
+- Resume and cover letter: `get_resume`, `review_resume`,
+  `optimize_resume_text`, `generate_cover_letter`
+- Interviews and research: `list_interviews`, `get_interview_feedback`,
+  `create_interview_session`, `get_company_prep`, `generate_company_prep`
+- Referrals and outreach: `search_mentors`, `list_bookmarked_mentors`,
+  `generate_outreach`
+- LinkedIn and learning: `get_linkedin_analysis`,
+  `get_linkedin_optimizations`, `analyze_linkedin`,
+  `optimize_linkedin_section`, `get_learning_plan`, `list_quiz_sessions`,
+  `generate_learning_resources`, `generate_quiz`
+
+## Boundaries
+
+The public toolkit does not expose auto-apply. It also does not currently expose
+CareerMax job search, profile editing, dashboard Career Coach actions,
+professional-photo generation, or protected tailored-resume PDF delivery. Say
+so plainly and point the user to the CareerMax dashboard when needed.
 
 ## Setup
 
-1. Sign in to CareerMax and open Settings > API Keys.
-2. Create a new API key and copy it. The key starts with `cmx_live_` and is shown only once.
-3. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
-
-## What you can do
-
-### Job pipeline
-Track applications — add roles, update statuses, view your board.
-- `jobs_list` — List all jobs, filter by status (Watchlist, Applied, Screening, Interviewing, Received Offer, Rejected, Accepted)
-- `jobs_get` — Get full details for a specific job
-- `jobs_add` — Add a new job (preview/confirm)
-- `jobs_update` — Update status, notes, or other fields (preview/confirm)
-
-### Resume review
-Get AI feedback on your resume and optimize specific sections.
-- `resume_get` — View your current resume
-- `resume_review` — AI resume analysis, optionally tailored to a job (1 credit)
-- `resume_optimize` — Optimize a specific resume section (1 credit)
-
-### Cover letters
-Generate tailored cover letters that match your resume to job applications.
-- `cover_letter_generate` — Generate a cover letter for a specific job (1 credit)
-
-### Interview prep
-Mock interviews, company research, and feedback from past practice.
-- `interviews_list` — List past and upcoming sessions
-- `interviews_feedback` — Detailed AI feedback from a session
-- `interviews_create` — Create a mock interview (free to create, credits on start)
-- `company_prep_get` — View existing company research
-- `company_prep_generate` — Generate a company research brief (5 credits)
-
-### Referral finder
-Find potential referrals and draft personalized outreach messages.
-- `mentors_search` — Search for referrals at a target company (1 credit)
-- `mentors_bookmarks` — View bookmarked contacts
-- `outreach_generate` — Draft a personalized outreach message (1 credit)
-
-### Skill gap analysis
-Learning plans, resources, and quizzes for target roles.
-- `learning_plan` — View your personalized learning plan
-- `learning_quizzes` — List past quiz sessions and scores
-- `learning_resources` — Generate learning resources for a topic (5 credits)
-- `learning_quiz` — Generate a skill quiz (1 credit)
-
-### Account
-- `careermax_info` — Overview of capabilities and account
-- `credits_get` — Check credit balance and plan tier
-
-## How it works
-
-1. This skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
-2. Read operations are free. Write operations use preview/confirm — you see a summary and credit cost before anything executes.
-3. All AI processing happens server-side on the same backend as the CareerMax web app.
-
-## Usage
-
-```bash
-# Run as MCP server (for AI agents)
-npx @careermax/agent-toolkit mcp
-
-# Or use the CLI directly
-npx @careermax/agent-toolkit jobs list
-npx @careermax/agent-toolkit resume review
-npx @careermax/agent-toolkit cover-letter generate --job-id <id>
-npx @careermax/agent-toolkit interviews create --role "Software Engineer" --company Stripe
-npx @careermax/agent-toolkit credits
-```
+1. Create a dedicated agent key in CareerMax Settings.
+2. Set it through the agent's secure environment configuration as
+   `CAREERMAX_API_KEY`.
+3. Run `npx -y @careermax/agent-toolkit mcp`.
+4. Verify the connection with a read-only request such as “list my pipeline.”

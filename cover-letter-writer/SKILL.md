@@ -1,7 +1,7 @@
 ---
 name: careermax-cover-letter-writer
-description: CareerMax AI (careermax.ai) — generate tailored cover letters for job applications. Use when the user says "write a cover letter", "generate cover letter", "cover letter for this job", or needs a cover letter.
-version: 0.1.1
+description: Generate tailored cover letters for job applications. Use when the user says "write a cover letter", "generate cover letter", "cover letter for this job", or needs a cover letter.
+version: 0.2.0
 metadata:
   openclaw:
     requires:
@@ -10,36 +10,27 @@ metadata:
       bins:
         - npx
     primaryEnv: CAREERMAX_API_KEY
-    homepage: https://careermax.ai/ai-agent
+    homepage: https://careermax.ai
 ---
 
 # CareerMax Cover Letter Writer
 
-Generate tailored cover letters that match your resume to specific job applications.
+Use the primary `careermax` skill for shared conversation, security, confirmation,
+and error-recovery rules.
 
-## Setup
+## Workflow
 
-1. Sign in to CareerMax and open Settings > API Keys.
-2. Create a new API key and copy it. The key starts with `cmx_live_` and is shown only once.
-3. Set the environment variable: `export CAREERMAX_API_KEY="cmx_live_..."`
+1. Ask which pipeline role the user means when it is ambiguous.
+2. Use `get_job` to review its company, role, and description when helpful.
+3. Use `generate_cover_letter` with a job ID or job description.
+4. Return the draft in a readable format and invite specific revisions. Do not
+   imply that CareerMax submitted the application.
 
-## How It Works
+CareerMax can use the user's stored resume when resume text is omitted. If no
+resume is available, explain how to add one at `https://careermax.ai/resume`.
 
-1. The skill connects to CareerMax via the `@careermax/agent-toolkit` MCP server
-2. It auto-fetches your stored resume — no need to paste it
-3. You provide the job description or a job ID from your pipeline
-4. AI generates a tailored cover letter matching your experience to the role
-
-## Tools
-
-- `cover_letter_generate` — Generate a cover letter tailored to a specific job description (costs 1 credit, preview/confirm)
-
-## Usage
+## CLI
 
 ```bash
-# Install the MCP server
-npx @careermax/agent-toolkit mcp
-
-# Or use the CLI directly
 npx @careermax/agent-toolkit cover-letter generate --job-id <id>
 ```
