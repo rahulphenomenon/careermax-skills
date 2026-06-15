@@ -1,6 +1,6 @@
 ---
 name: careermax-resume-reviewer
-description: Get AI-powered resume feedback and optimization. Use when the user says "review my resume", "improve my resume", "optimize my resume", "what's wrong with my resume", or wants resume advice.
+description: Deprecated compatibility entry point for CareerMax resume-review workflows. Install and use the primary careermax skill instead.
 version: 0.2.0
 metadata:
   openclaw:
@@ -13,27 +13,16 @@ metadata:
     homepage: https://careermax.ai
 ---
 
-# CareerMax Resume Reviewer
+# CareerMax Resume Reviewer (Deprecated)
 
-Use the primary `careermax` skill for shared conversation, security, confirmation,
-and error-recovery rules.
+This focused skill has moved to the primary `careermax` skill and remains only
+for one transition release.
 
-## Workflow
+Install the primary skill:
 
-- Use `get_resume` to check whether the user has a stored resume.
-- Use `review_resume` for structured feedback.
-- Use `optimize_resume_text` when the user wants a specific section or bullet
-  rewritten for a target role.
-
-Ask before changing the user's wording, preserve facts, and clearly label
-suggested text. CareerMax does not currently return a newly tailored resume as a
-PDF through this integration. If no resume is stored, ask the user to add one at
-`https://careermax.ai/resume`.
-
-## CLI
-
-```bash
-npx @careermax/agent-toolkit resume show
-npx @careermax/agent-toolkit resume review
-npx @careermax/agent-toolkit resume optimize --text "Led a team." --target-role "Engineering Manager"
+```sh
+npx skills add rahulphenomenon/careermax-skills --skill careermax
 ```
+
+Use the primary skill for resume-review workflows and all other supported
+CareerMax agent workflows.

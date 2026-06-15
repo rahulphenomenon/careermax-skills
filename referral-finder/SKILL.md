@@ -1,6 +1,6 @@
 ---
 name: careermax-referral-finder
-description: Find potential referrals at target companies and draft outreach messages. Use when the user says "find a referral", "who can refer me", "draft outreach", "reach out to someone at", "networking", or wants to connect with people at a company.
+description: Deprecated compatibility entry point for CareerMax referral workflows. Install and use the primary careermax skill instead.
 version: 0.2.0
 metadata:
   openclaw:
@@ -13,25 +13,16 @@ metadata:
     homepage: https://careermax.ai
 ---
 
-# CareerMax Referral Finder
+# CareerMax Referral Finder (Deprecated)
 
-Use the primary `careermax` skill for shared conversation, security, confirmation,
-and error-recovery rules.
+This focused skill has moved to the primary `careermax` skill and remains only
+for one transition release.
 
-## Workflow
+Install the primary skill:
 
-1. Clarify the target company and the kind of contact the user wants.
-2. Use `search_mentors`, or `list_bookmarked_mentors` for saved contacts.
-3. Let the user choose a relevant person.
-4. Use `generate_outreach` with that person's name, title, and company, plus
-   the user's goal. Return a draft for the user to edit and send themselves.
-
-Do not claim CareerMax contacted anyone or secured a referral.
-
-## CLI
-
-```bash
-npx @careermax/agent-toolkit mentors search --company Stripe --role "Software Engineer"
-npx @careermax/agent-toolkit mentors bookmarks
-npx @careermax/agent-toolkit outreach generate --mentor-name "Avery Chen" --mentor-title "Engineering Manager" --mentor-company Stripe --type referral --user-role "Software Engineer"
+```sh
+npx skills add rahulphenomenon/careermax-skills --skill careermax
 ```
+
+Use the primary skill for referral workflows and all other supported CareerMax
+agent workflows.
