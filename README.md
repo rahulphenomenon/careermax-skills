@@ -1,45 +1,51 @@
 # CareerMax Skills
 
-Agent skills for [CareerMax AI](https://careermax.ai) — all the tools you need to land your next job.
+Use [CareerMax](https://careermax.ai) from AI agents such as Claude Code,
+Codex, Gemini CLI, and OpenClaw.
 
-Use CareerMax with AI agents like Claude Code, Codex, Gemini CLI, and OpenClaw to search jobs, track applications, review resumes, write cover letters, prepare for interviews, find referrals, and close skill gaps.
+The primary `careermax` skill covers the supported agent workflows:
 
-## Skills
+- Review career context, credits, and action costs
+- Manage the job application pipeline
+- Review and improve resumes and generate cover letters
+- Prepare for interviews and create voice-practice sessions
+- Find referrals and draft outreach
+- Analyze LinkedIn and build learning plans
 
-| Skill | Install | What it does |
-|-------|---------|-------------|
-| **Job Pipeline Tracker** | `npx skills add rahulphenomenon/careermax-skills/job-pipeline-tracker` | Track applications, update statuses, manage your job board |
-| **Resume Reviewer** | `npx skills add rahulphenomenon/careermax-skills/resume-reviewer` | Get AI feedback on your resume and optimize sections |
-| **Cover Letter Writer** | `npx skills add rahulphenomenon/careermax-skills/cover-letter-writer` | Generate tailored cover letters for job applications |
-| **Interview Prep** | `npx skills add rahulphenomenon/careermax-skills/interview-prep` | Mock interviews, company research, and past feedback |
-| **Referral Finder** | `npx skills add rahulphenomenon/careermax-skills/referral-finder` | Find referrals at target companies and draft outreach |
-| **Skill Gap Analysis** | `npx skills add rahulphenomenon/careermax-skills/skill-gap-analysis` | Learning plans, resources, and quizzes for target roles |
+The public agent toolkit does not expose auto-apply.
+
+## Install
+
+```sh
+npx skills add rahulphenomenon/careermax-skills --skill careermax
+```
+
+The focused skills remain available as compatibility entry points for one
+release, but new installations should use the primary `careermax` skill.
 
 ## Setup
 
 1. Sign in to CareerMax and open Settings > API Keys.
-2. Create a new API key and copy it. The key starts with `cmx_live_` and is shown only once.
-3. Set the environment variable:
+2. Create a dedicated agent API key and copy it.
+3. Set it through your agent's secure environment configuration as
+   `CAREERMAX_API_KEY`.
+4. Configure the MCP server:
+
    ```sh
-   export CAREERMAX_API_KEY="cmx_live_..."
-   ```
-4. Install any skill above, or install them all:
-   ```sh
-   npx skills add rahulphenomenon/careermax-skills/job-pipeline-tracker
-   npx skills add rahulphenomenon/careermax-skills/resume-reviewer
-   npx skills add rahulphenomenon/careermax-skills/cover-letter-writer
-   npx skills add rahulphenomenon/careermax-skills/interview-prep
-   npx skills add rahulphenomenon/careermax-skills/referral-finder
-   npx skills add rahulphenomenon/careermax-skills/skill-gap-analysis
+   npx -y @careermax/agent-toolkit mcp
    ```
 
-## AI Agent Guides
+5. Verify the connection with a read-only request such as "list my pipeline."
 
-- [CareerMax AI agent guide](https://careermax.ai/ai-agent): use CareerMax with Claude Code, Codex, Gemini CLI, and other agent tools.
-- [CareerMax OpenClaw guide](https://careermax.ai/openclaw): install CareerMax as an OpenClaw skill and run job-search workflows from your agent.
+Never paste the API key into a chat message.
 
-## How it works
+## How It Works
 
-Each skill connects to CareerMax via the [`@careermax/agent-toolkit`](https://www.npmjs.com/package/@careermax/agent-toolkit) MCP server. All processing happens server-side on the same backend as the CareerMax web app. Your data stays in your account.
+The skills use the
+[`@careermax/agent-toolkit`](https://www.npmjs.com/package/@careermax/agent-toolkit)
+MCP server to access the user's connected CareerMax account. Lasting pipeline
+changes and interview-session creation require explicit confirmation. Draft
+generation and read-only requests can proceed directly.
 
-Read operations are free. Write operations use a preview/confirm pattern — you see a summary and credit cost before anything executes.
+See the [CareerMax AI agent guide](https://careermax.ai/ai-agent) and
+[OpenClaw guide](https://careermax.ai/openclaw) for platform-specific setup.
