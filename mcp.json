@@ -3,21 +3,7 @@
   "mcpServers": {
     "careermax": {
       "type": "streamable-http",
-      "url": "https://mcp.careermax.ai/mcp",
-      "extensions": {
-        "com.openai": {
-          "auth": {
-            "type": "oauth",
-            "resource": "https://mcp.careermax.ai",
-            "client": {
-              "mode": "cimd"
-            },
-            "baseScopes": [
-              "careermax:events"
-            ]
-          }
-        }
-      }
+      "url": "https://mcp.careermax.ai/mcp"
     }
   }
 }

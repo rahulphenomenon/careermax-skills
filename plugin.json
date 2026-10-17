@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "careermax",
   "version": "1.0.0",
-  "description": "Run your job search from ChatGPT: daily ranked jobs, applications with live status, referral and outreach drafts, Storybank and interview prep.",
+  "description": "Run your job search from your AI assistant: daily ranked jobs, applications with live status, referral and outreach drafts, Storybank and interview prep.",
   "author": {
     "name": "Ramen Labs LLC",
     "email": "support@careermax.ai",

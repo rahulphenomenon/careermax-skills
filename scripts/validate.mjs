@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Validates every host package in this repo against the shared skills folder:
-// Agent Skills frontmatter, the Claude plugin + marketplace, the Muse Code
-// manifest and the ChatGPT manifests. Run: node scripts/validate.mjs
+// Agent Skills frontmatter, the Claude plugin + marketplace, and the Agent
+// Plugins root manifest used by ChatGPT. Run: node scripts/validate.mjs
 import { readFile, readdir, lstat } from "node:fs/promises";
 import { join, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -45,8 +45,12 @@ const claudeMcp = await json(".mcp.json");
 endpoints.add(claudeMcp.mcpServers?.careermax?.url);
 const openaiMcp = await json("mcp.json");
 endpoints.add(openaiMcp.mcpServers?.careermax?.url);
-const muse = await json(".muse-plugin/plugin.json");
-for (const server of muse.capabilities?.mcpServers ?? []) endpoints.add(server.url);
+// The Agent Plugins root manifest (plugin.json + mcp.json) must stay within the shared schema.
+const servers = Object.values(openaiMcp.mcpServers ?? {});
+for (const server of servers) {
+  const extra = Object.keys(server).filter((key) => !["type", "url", "headers"].includes(key));
+  if (extra.length) fail(`mcp.json server has fields outside the Agent Plugins schema: ${extra.join(", ")}`);
+}
 if (endpoints.size !== 1) fail(`MCP endpoints disagree: ${[...endpoints].join(", ")}`);
 for (const url of endpoints) {
   if (!url || !/^https:\/\/[^/]+\/mcp$/.test(url)) fail(`MCP endpoint must be an https URL ending in /mcp: ${url}`);
@@ -56,17 +60,8 @@ for (const url of endpoints) {
 const claude = await json(".claude-plugin/plugin.json");
 const marketplace = await json(".claude-plugin/marketplace.json");
 const openai = await json("plugin.json");
-const versions = new Set([claude.version, muse.version, openai.version, ...marketplace.plugins.map((p) => p.version)]);
+const versions = new Set([claude.version, openai.version, ...marketplace.plugins.map((p) => p.version)]);
 if (versions.size !== 1) fail(`Plugin versions disagree: ${[...versions].join(", ")}`);
-
-// Muse lists exactly the shared skills.
-const museIdPattern = /^[a-z0-9][a-z0-9._-]{0,79}$/;
-const museSkills = (muse.capabilities?.skills ?? []).map((skill) => {
-  if (!museIdPattern.test(skill.id)) fail(`Muse skill id invalid: ${skill.id}`);
-  if (skill.path !== `skills/${skill.id}/SKILL.md`) fail(`Muse skill path mismatch: ${skill.path}`);
-  return skill.id;
-}).sort();
-if (JSON.stringify(museSkills) !== JSON.stringify(skillIds)) fail("Muse manifest skills differ from skills/");
 
 // ChatGPT onboarding skill exists.
 const onboarding = openai.extensions?.["com.openai"]?.onboardingSkill;
@@ -76,5 +71,5 @@ if (problems.length) {
   for (const problem of problems) console.error(`✗ ${problem}`);
   process.exitCode = 1;
 } else {
-  console.log(`✓ ${skillIds.length} skills and the Claude, Muse and ChatGPT manifests are consistent (${[...endpoints][0]})`);
+  console.log(`✓ ${skillIds.length} skills and the Claude and Agent Plugins (ChatGPT) manifests are consistent (${[...endpoints][0]})`);
 }

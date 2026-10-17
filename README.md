@@ -5,7 +5,7 @@
 <h1 align="center">CareerMax for AI assistants</h1>
 
 <p align="center">
-  Run your job search from Claude, ChatGPT, Muse, Hermes or any agent that speaks MCP.<br>
+  Run your job search from Claude, ChatGPT, Hermes or any agent that speaks MCP.<br>
   CareerMax finds jobs and fills out applications. Your assistant ranks the jobs, drafts the messages and helps you prepare.
 </p>
 
@@ -13,7 +13,7 @@
   <a href="https://careermax.ai/ai-agent">Website</a> ·
   <a href="#claude">Claude</a> ·
   <a href="#chatgpt">ChatGPT</a> ·
-  <a href="#muse-code">Muse Code</a> ·
+  <a href="#muse">Muse</a> ·
   <a href="#hermes">Hermes</a> ·
   <a href="#any-other-agent">Other agents</a>
 </p>
@@ -44,9 +44,11 @@ You need a CareerMax account. If you don't have one, you can create it when you 
 ### Claude
 
 **Claude apps (web, desktop, mobile)**
-1. Open **Customize → Plugins** and add CareerMax, or add it from this repository's marketplace.
+1. Open **Customize → Plugins** and add CareerMax. Until the directory listing is live, open **Settings → Connectors → Add custom connector** and paste `https://mcp.careermax.ai/mcp`.
 2. Sign in to CareerMax when asked.
 3. Say **"Help me find a job"**.
+
+The plugin adds the six skills below on top of the connector. Without them Claude still knows the workflows from the server.
 
 To get your brief every morning, open **Scheduled**, create a new task with the prompt *Run my CareerMax daily brief*, and pick a time.
 
@@ -58,22 +60,20 @@ To get your brief every morning, open **Scheduled**, create a new task with the 
 
 ### ChatGPT
 
-1. Find **CareerMax** in the ChatGPT plugins directory and install it.
+1. Find **CareerMax** in the ChatGPT plugins directory and install it. Until the listing is live, open **Settings → Apps**, turn on **Developer mode** under Advanced settings, choose **Create app** and paste `https://mcp.careermax.ai/mcp`.
 2. Sign in to CareerMax when asked.
-3. Say **"@CareerMax run my daily brief"**.
+3. Say **"@CareerMax run my daily brief"**. Pick jobs in the card that opens beside the chat.
 
 Ask ChatGPT to run your daily brief every morning to create a scheduled task. In ChatGPT Work you can also ask CareerMax to let you know when an application needs you.
 
-### Muse Code
+### Muse
 
-```bash
-muse plugins marketplace add careermax https://github.com/rahulphenomenon/careermax-skills
-muse plugins install careermax@careermax
-muse plugins approve careermax
-muse mcp login careermax
-```
+CareerMax is coming to Muse's connector directory. Once it's listed:
+1. In Muse, open **Settings → Connectors** and connect **CareerMax**.
+2. Sign in to CareerMax when asked.
+3. Say *What are today's best jobs for me on CareerMax?* Muse shows jobs as a numbered list, so reply with the numbers you want.
 
-Then run `muse` and say *Run my CareerMax daily brief*. Muse Code shows results as text, so choose jobs by number.
+Muse asks you to confirm every action that spends credits, submits an application or sends an email.
 
 ### Hermes
 
@@ -103,10 +103,9 @@ Then sign in from a terminal with `hermes mcp login careermax` and ask Hermes fo
 | Path | For |
 | --- | --- |
 | `skills/` | Six workflow skills in the [Agent Skills](https://agentskills.io) format, shared by every assistant |
-| `.claude-plugin/` | Claude plugin and the marketplace used by Claude Code and Muse Code |
-| `.mcp.json` | MCP server for Claude and Muse Code |
-| `.muse-plugin/` | Native Muse Code plugin manifest |
-| `plugin.json`, `mcp.json` | ChatGPT plugin package (`node scripts/build-chatgpt.mjs` builds the upload) |
+| `.claude-plugin/` | Claude plugin and the marketplace for `/plugin marketplace add` |
+| `.mcp.json` | MCP server for the Claude plugin |
+| `plugin.json`, `mcp.json` | ChatGPT plugin package in the Agent Plugins format (`node scripts/build-chatgpt.mjs` builds the upload) |
 | `scripts/validate.mjs` | Checks that every manifest lists the same skills and server |
 
 ## Privacy and support

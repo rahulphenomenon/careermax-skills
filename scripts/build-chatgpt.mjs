@@ -102,12 +102,9 @@ async function main() {
   const endpoint = process.env.CAREERMAX_PLUGIN_MCP_URL?.trim() || server.url;
   server.url = checkedHttps(endpoint, "CareerMax MCP endpoint");
   if (!server.url.endsWith("/mcp")) fail("CareerMax MCP endpoint must end in /mcp");
-  const auth = server.extensions?.["com.openai"]?.auth;
-  if (!auth || auth.type !== "oauth") fail("The CareerMax MCP server must declare OpenAI OAuth authentication");
-  if (!Array.isArray(auth.baseScopes) || !auth.baseScopes.includes("careermax:events")) {
-    fail("CareerMax OAuth baseScopes must request event monitoring permission");
-  }
-  auth.resource = new URL(server.url).origin;
+  // ChatGPT discovers OAuth (CIMD) from the server's 401 challenge; keep mcp.json within the Agent Plugins schema so other hosts accept it too.
+  if (Object.keys(server).some((key) => !["type", "url", "headers"].includes(key))) fail("mcp.json server entry must stay within the Agent Plugins schema");
+
 
   const files = await inventory(root);
   for (const file of files) {
