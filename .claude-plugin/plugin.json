@@ -1,0 +1,10 @@
+{
+  "name": "careermax",
+  "version": "1.0.0",
+  "description": "Run your job search from Claude: daily ranked jobs, one-tap applications with live status, referral and outreach drafts, Storybank and interview prep.",
+  "author": { "name": "Ramen Labs LLC", "email": "support@careermax.ai", "url": "https://careermax.ai" },
+  "homepage": "https://careermax.ai/ai-agent",
+  "repository": "https://github.com/rahulphenomenon/careermax-skills",
+  "license": "MIT",
+  "keywords": ["jobs", "job search", "applications", "career", "interview", "referrals"]
+}

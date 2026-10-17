@@ -1,0 +1,15 @@
+{
+  "name": "careermax",
+  "owner": { "name": "Ramen Labs LLC", "email": "support@careermax.ai" },
+  "metadata": { "description": "CareerMax plugins for running your job search from an AI assistant." },
+  "plugins": [
+    {
+      "name": "careermax",
+      "source": "./",
+      "description": "Daily ranked jobs, one-tap applications with live status, referral and outreach drafts, Storybank and interview prep.",
+      "version": "1.0.0",
+      "category": "productivity",
+      "homepage": "https://careermax.ai/ai-agent"
+    }
+  ]
+}
