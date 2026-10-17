@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "name": "careermax",
+  "displayName": "CareerMax",
+  "version": "1.0.0",
+  "description": "Run your job search from your agent: daily ranked jobs, applications with live status, referral and outreach drafts, Storybank and interview prep.",
+  "compat": {
+    "source": "native",
+    "manifestDir": ".muse-plugin"
+  },
+  "capabilities": {
+    "skills": [
+      {
+        "id": "applications",
+        "path": "skills/applications/SKILL.md",
+        "enabledDefault": true
+      },
+      {
+        "id": "daily-brief",
+        "path": "skills/daily-brief/SKILL.md",
+        "enabledDefault": true
+      },
+      {
+        "id": "get-started",
+        "path": "skills/get-started/SKILL.md",
+        "enabledDefault": true
+      },
+      {
+        "id": "help-me-prepare",
+        "path": "skills/help-me-prepare/SKILL.md",
+        "enabledDefault": true
+      },
+      {
+        "id": "referrals-and-outreach",
+        "path": "skills/referrals-and-outreach/SKILL.md",
+        "enabledDefault": true
+      },
+      {
+        "id": "storybank",
+        "path": "skills/storybank/SKILL.md",
+        "enabledDefault": true
+      }
+    ],
+    "commands": [],
+    "hooks": [],
+    "mcpServers": [
+      {
+        "id": "careermax",
+        "transport": "http",
+        "url": "https://mcp.careermax.ai/mcp"
+      }
+    ],
+    "reminders": []
+  }
+}

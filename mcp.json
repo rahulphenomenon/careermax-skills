@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "careermax": {
+      "type": "streamable-http",
+      "url": "https://mcp.careermax.ai/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "resource": "https://mcp.careermax.ai",
+            "client": {
+              "mode": "cimd"
+            },
+            "baseScopes": [
+              "careermax:events"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
