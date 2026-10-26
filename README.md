@@ -28,14 +28,14 @@ Every workflow has the same shape: your assistant proposes, you decide, CareerMa
 
 | Say | What happens |
 | --- | --- |
-| **"Help me find a job"** | Share your résumé. Your assistant fills in your CareerMax profile, asks only what's missing, sets your job preferences and shows your first matches. |
-| **"Run my CareerMax daily brief"** | Today's new jobs, ranked against your real experience with one line on why each fits, plus anything waiting on you. Pick the ones you want. |
+| **"Help me find a job"** | Share your résumé, or describe your experience. Your assistant drafts your whole profile (job preferences, the facts employers ask for, your applicant email and daily outreach), shows it once for your approval, then shows today's best jobs. |
+| **"Run my CareerMax job search brief"** | Today's new jobs, ranked against your real experience with one line on why each fits, plus anything waiting on you. Pick the ones you want. With daily outreach on, it also suggests 3 new companies a day worth reaching out to, with the people to contact there. |
 | **"Apply to the first two"** | CareerMax fills each application in a cloud browser while you watch progress. Answer any employer questions in chat and review before anything is sent. |
 | **"Find someone at Acme who could refer me"** | CareerMax finds the right people and your assistant drafts a short note for you to approve and send. |
 | **"Build my Storybank"** | A short conversation that turns your past wins into reusable interview stories. |
 | **"Help me prepare for my interview on Thursday"** | A one-screen brief: the company, likely questions and which of your stories to use. |
 
-You stay in charge. CareerMax only applies to jobs you pick, never submits without your approval unless you turned off **Review before submit** in the app, and never sends a message you haven't approved. Credits are shown before anything is spent: an application costs 1 credit, a contact search 1 (refunded when nobody is found), and company research 5.
+You stay in charge. CareerMax only applies to jobs you pick, never submits without your approval unless you turned off **Review before submit** in the app, and never sends a message you haven't approved. Credits are shown before anything is spent: an application costs 1 credit, a contact search 1 (refunded when nobody is found), each daily outreach company 1 (free when nobody is found), and company research 5.
 
 ## Install
 
@@ -50,7 +50,7 @@ You need a CareerMax account. If you don't have one, you can create it when you 
 
 The plugin adds the six skills below on top of the connector. Without them Claude still knows the workflows from the server.
 
-To get your brief every morning, open **Scheduled**, create a new task with the prompt *Run my CareerMax daily brief*, and pick a time.
+To get your brief every morning on a paid Claude plan, open **Scheduled**, create a new task with the prompt *Run my CareerMax job search brief*, and pick a time. On a free plan, say the prompt each morning instead.
 
 **Claude Code**
 ```bash
@@ -62,9 +62,9 @@ To get your brief every morning, open **Scheduled**, create a new task with the 
 
 1. Find **CareerMax** in the ChatGPT plugins directory and install it. Until the listing is live, open **Settings → Apps**, turn on **Developer mode** under Advanced settings, choose **Create app** and paste `https://mcp.careermax.ai/mcp`.
 2. Sign in to CareerMax when asked.
-3. Say **"@CareerMax run my daily brief"**. Pick jobs in the card that opens beside the chat.
+3. Say **"@CareerMax run my job search brief"**. Pick jobs in the card that opens beside the chat.
 
-Ask ChatGPT to run your daily brief every morning to create a scheduled task. In ChatGPT Work you can also ask CareerMax to let you know when an application needs you.
+Ask ChatGPT to run your job search brief every morning to create a scheduled task. In ChatGPT Work you can also ask CareerMax to let you know when an application needs you.
 
 ### Muse
 
@@ -90,13 +90,13 @@ mcp_servers:
     auth: oauth
 ```
 
-Then sign in from a terminal with `hermes mcp login careermax` and ask Hermes for your daily brief.
+Then sign in from a terminal with `hermes mcp login careermax` and ask Hermes for your job search brief.
 
 ### Any other agent
 
 1. Install the skills: `npx skills add rahulphenomenon/careermax-skills`
 2. Connect the remote MCP server `https://mcp.careermax.ai/mcp` (Streamable HTTP, OAuth 2.1 sign-in with your CareerMax account).
-3. Ask for your daily brief.
+3. Ask for your job search brief.
 
 ## What's in this repository
 

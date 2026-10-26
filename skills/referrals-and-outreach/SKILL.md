@@ -19,6 +19,8 @@ compatibility: Requires the CareerMax MCP server (https://mcp.careermax.ai/mcp) 
 
 ## Outreach to companies
 
+Daily outreach in the job search brief already suggests 3 new companies a day with people to contact (`find_outreach_contacts`); if it's off and the user wants that routine, offer to turn it on with `set_daily_outreach`. For a one-off list beyond that:
+
 1. Agree on what "good fit" means in one exchange: stage, industry, size, location, what they want to do.
 2. Research with web search. Prefer recent, sourced signals: a funding round in the last 6 months, new leadership in their function, open roles near theirs, product launches. Link the source for each signal.
 3. Present 5-10 companies, each with the signal and one line on why the user fits. Ask which to pursue.

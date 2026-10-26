@@ -40,7 +40,7 @@
         "privacyPolicyURL": "https://careermax.ai/privacy",
         "termsOfServiceURL": "https://careermax.ai/terms",
         "defaultPrompt": [
-          "Run my CareerMax daily brief",
+          "Run my CareerMax job search brief",
           "Which of my applications need me?",
           "Help me prepare for my next interview"
         ],
@@ -66,13 +66,13 @@
             {
               "description": "Report which applications need the user.",
               "prompt": "Which of my CareerMax applications need me right now?",
-              "tools_triggered": "get_applications",
+              "tools_triggered": "get_job_applications",
               "expected_behavior": "The assistant lists only the user's applications that need input or review, one line each, and offers to open one."
             },
             {
               "description": "Prepare for an interview with company research and the user's stories.",
               "prompt": "Help me prepare for my interview with Acme for the Product Manager role on Thursday.",
-              "tools_triggered": "research_company, list_stories",
+              "tools_triggered": "research_company_for_interview, list_interview_stories",
               "expected_behavior": "The assistant states the research cost, runs CareerMax research, reads the Storybank and gives a one-screen brief with likely questions mapped to the user's stories."
             },
             {

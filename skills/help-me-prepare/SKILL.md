@@ -10,7 +10,7 @@ compatibility: Requires the CareerMax MCP server (https://mcp.careermax.ai/mcp) 
 ## Gather
 
 1. Pin down company, role, date and interviewer. If a calendar is connected, look for the event and read the attendees and description. Ask only for what's still missing.
-2. Call `research_company` (5 credits; mention it once before running) with the company and role. Call `list_stories`. If the job came through CareerMax, use its posting from `get_applications`.
+2. Call `research_company_for_interview` (5 credits; mention it once before running) with the company and role. Call `list_interview_stories`. If the job came through CareerMax, use its posting from `get_job_applications`.
 3. If you have the interviewer's name, a quick web search for their public professional background is fine. Nothing personal.
 
 ## Brief
