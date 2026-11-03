@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "careermax",
-  "version": "1.0.0",
-  "description": "Run your job search from your AI assistant: daily ranked jobs, applications with live status, referral and outreach drafts, Storybank and interview prep.",
+  "version": "1.1.0",
+  "description": "Run your job search from your AI assistant: daily job matches ranked against your resume, applications filled out for you, referrals and outreach, interview prep and a Storybank.",
   "author": {
     "name": "Ramen Labs LLC",
     "email": "support@careermax.ai",
@@ -11,12 +11,16 @@
   "homepage": "https://careermax.ai/ai-agent",
   "license": "MIT",
   "keywords": [
-    "jobs",
     "job search",
-    "applications",
+    "jobs",
+    "job applications",
+    "apply to jobs",
+    "resume",
     "career",
-    "interviews",
-    "referrals"
+    "interview prep",
+    "referrals",
+    "networking",
+    "mcp"
   ],
   "extensions": {
     "com.openai": {
@@ -24,11 +28,11 @@
       "interface": {
         "displayName": "CareerMax",
         "shortDescription": "Run your job search",
-        "longDescription": "CareerMax finds new jobs for you every day. ChatGPT ranks them against your experience and explains each match, you pick the ones you want, and CareerMax fills out the applications while you watch progress live. Answer any employer questions in chat, review before anything is sent, get help reaching people at the company, build your Storybank and prepare for interviews. Nothing is submitted or sent without your approval or your Review before submit setting.",
+        "longDescription": "CareerMax finds new jobs for you every day. ChatGPT shows your top 5 against your experience and explains each match, every other match is a tap away, and you can find more whenever you want. Pick the ones you want and CareerMax fills out the applications while you watch progress live. Answer any employer questions in chat, review before anything is sent, find people at the company for a referral, build your Storybank and prepare for interviews. Nothing is submitted or sent without your approval or your Review before submit setting.",
         "developerName": "Ramen Labs LLC",
         "category": "Productivity",
         "capabilities": [
-          "Daily ranked job matches",
+          "Daily job matches ranked for you",
           "Applications with live status",
           "Answer and review applications",
           "Referral and outreach contacts",
@@ -55,7 +59,7 @@
               "description": "Show today's jobs ranked for the user and let them choose what to apply to.",
               "prompt": "What's new in my CareerMax job search today?",
               "tools_triggered": "get_account_overview, get_todays_jobs, show_job_picker",
-              "expected_behavior": "The assistant reads the account and today's jobs, scores each job against the user's real experience, shows the ranked picker card, and summarizes the top matches in a few lines without applying to anything."
+              "expected_behavior": "The assistant reads the account and today's ranked jobs, picks the user's top 5 against their real experience, shows the picker card with the rest under View all, and summarizes the top matches in a few lines without applying to anything."
             },
             {
               "description": "Start applications for jobs the user names.",
@@ -72,14 +76,20 @@
             {
               "description": "Prepare for an interview with company research and the user's stories.",
               "prompt": "Help me prepare for my interview with Acme for the Product Manager role on Thursday.",
-              "tools_triggered": "research_company_for_interview, list_interview_stories",
-              "expected_behavior": "The assistant states the research cost, runs CareerMax research, reads the Storybank and gives a one-screen brief with likely questions mapped to the user's stories."
+              "tools_triggered": "list_interview_stories",
+              "expected_behavior": "The assistant researches the company and role with web search and cites sources, reads the Storybank and gives a one-screen brief with likely questions mapped to the user's stories. It uses paid CareerMax research only if it cannot search the web and the user agrees."
             },
             {
               "description": "Find people at a company for a referral after applying.",
               "prompt": "Find someone at Acme who could refer me for the job I applied to.",
               "tools_triggered": "get_application, find_people_at_company",
               "expected_behavior": "The assistant mentions the 1-credit cost, finds contacts for the submitted application, suggests one to three people with reasons and drafts a short note for the user to approve. It sends nothing."
+            },
+            {
+              "description": "Add more jobs to the queue on request.",
+              "prompt": "Show me more jobs.",
+              "tools_triggered": "find_more_jobs, show_job_picker",
+              "expected_behavior": "The assistant adds the next jobs to the user's CareerMax queue and shows its top picks among them, or relays that today's new jobs are used up. It applies to nothing."
             }
           ],
           "negative": [
@@ -103,7 +113,7 @@
         "commerce": false
       },
       "publication": {
-        "release_notes": "CareerMax for ChatGPT: daily ranked jobs, applications with live status and in-chat review, referral and outreach help, Storybank and interview preparation."
+        "release_notes": "Top 5 job matches with View all and Find more jobs, two daily briefs (apply in the evening, outreach in the morning), Storybank coaching and free interview research with sources."
       }
     }
   }

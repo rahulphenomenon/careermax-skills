@@ -2,11 +2,11 @@
   <img src="assets/icon.svg" width="72" height="72" alt="CareerMax">
 </p>
 
-<h1 align="center">CareerMax for AI assistants</h1>
+<h1 align="center">CareerMax: run your job search from Claude</h1>
 
 <p align="center">
-  Run your job search from Claude, ChatGPT, Hermes or any agent that speaks MCP.<br>
-  CareerMax finds jobs and fills out applications. Your assistant ranks the jobs, drafts the messages and helps you prepare.
+  Job search skills and a remote MCP server for Claude, ChatGPT, Hermes and any agent that speaks MCP.<br>
+  CareerMax finds jobs that match your resume every day and fills out the applications you pick. Your assistant shortlists the jobs, drafts referral and outreach notes, and helps you prepare for interviews.
 </p>
 
 <p align="center">
@@ -28,12 +28,13 @@ Every workflow has the same shape: your assistant proposes, you decide, CareerMa
 
 | Say | What happens |
 | --- | --- |
-| **"Help me find a job"** | Share your résumé, or describe your experience. Your assistant drafts your whole profile (job preferences, the facts employers ask for, your applicant email and daily outreach), shows it once for your approval, then shows today's best jobs. |
-| **"Run my CareerMax job search brief"** | Today's new jobs, ranked against your real experience with one line on why each fits, plus anything waiting on you. Pick the ones you want. With daily outreach on, it also suggests 3 new companies a day worth reaching out to, with the people to contact there. |
+| **"Help me find a job"** | Share your resume, or describe your experience. Your assistant drafts your whole profile (job preferences, everything employers ask on applications, your applicant email and daily outreach), shows it once for your approval, shows today's best jobs, then sets up your daily briefs at times you pick. |
+| **"Run my CareerMax job search brief"** | Your top 5 new jobs, each with one line on why it fits your real experience, every other match under **View all**, and anything waiting on you. Tick the ones you want and apply. With daily outreach on, it also suggests 3 new companies a day worth reaching out to, with the people to contact there. |
+| **"Show me more jobs"** | The next 10 jobs, newly posted ones first: up to 50 new jobs a day on a paid CareerMax plan. Your queue is the same in Claude, the CareerMax app and on the web. |
 | **"Apply to the first two"** | CareerMax fills each application in a cloud browser while you watch progress. Answer any employer questions in chat and review before anything is sent. |
 | **"Find someone at Acme who could refer me"** | CareerMax finds the right people and your assistant drafts a short note for you to approve and send. |
-| **"Build my Storybank"** | A short conversation that turns your past wins into reusable interview stories. |
-| **"Help me prepare for my interview on Thursday"** | A one-screen brief: the company, likely questions and which of your stories to use. |
+| **"Build my Storybank"** | Your assistant suggests the moments on your resume worth turning into interview stories, coaches each one (evidence, ownership, structure, outcome) and saves it in STAR form. |
+| **"Help me prepare for my interview on Thursday"** | Free company and role research with sources, then a one-screen brief: the company in 60 seconds, likely interview questions matched to your stories, and questions to ask. |
 
 You stay in charge. CareerMax only applies to jobs you pick, never submits without your approval unless you turned off **Review before submit** in the app, and never sends a message you haven't approved. Credits are shown before anything is spent: an application costs 1 credit, a contact search 1 (refunded when nobody is found) and each daily outreach company 1 (free when nobody is found). Interview research and your Storybank are free.
 
@@ -98,6 +99,31 @@ Then sign in from a terminal with `hermes mcp login careermax` and ask Hermes fo
 2. Connect the remote MCP server `https://mcp.careermax.ai/mcp` (Streamable HTTP, OAuth 2.1 sign-in with your CareerMax account).
 3. Ask for your job search brief.
 
+## MCP server
+
+`https://mcp.careermax.ai/mcp` · Streamable HTTP · OAuth 2.1 sign-in with your CareerMax account (no API keys).
+
+| Workflow | Tools |
+| --- | --- |
+| Setup | `get_account_overview`, `complete_setup`, `get_resume`, `save_resume`, `save_job_preferences`, `save_application_profile`, `claim_applicant_email`, `set_daily_outreach` |
+| Jobs | `get_todays_jobs`, `show_job_picker`, `find_more_jobs`, `update_jobs`, `add_job_from_link` |
+| Applications | `apply_to_jobs`, `get_job_applications`, `get_application`, `answer_application`, `submit_application`, `cancel_application` |
+| People | `find_people_at_company`, `find_outreach_contacts` |
+| Inbox | `get_employer_emails`, `reply_to_employer_email` |
+| Interviews | `list_interview_stories`, `save_interview_story`, `research_company_for_interview` |
+
+In hosts that support MCP Apps, the job picker and applications tools show interactive cards; everywhere else they answer in text.
+
+## FAQ
+
+**Can Claude apply to jobs for me?** Yes. You pick the jobs; CareerMax fills out each employer's application in a cloud browser, asks you anything it doesn't know, and with Review before submit on shows you the finished application before it's sent.
+
+**Which job sites does it work with?** Jobs come from employer career sites on the applicant tracking systems CareerMax can apply through, so every job you see is one it can apply to for you.
+
+**Is it free?** Creating a CareerMax account is free and comes with a first set of matches. Applying and finding people use credits; daily jobs come with a paid plan. Interview research, your Storybank and drafting messages are free.
+
+**Does it work with ChatGPT, Hermes or other agents?** Yes. The same MCP server and skills work in any MCP client; see Install above.
+
 ## What's in this repository
 
 | Path | For |
@@ -106,6 +132,7 @@ Then sign in from a terminal with `hermes mcp login careermax` and ask Hermes fo
 | `.claude-plugin/` | Claude plugin and the marketplace for `/plugin marketplace add` |
 | `.mcp.json` | MCP server for the Claude plugin |
 | `plugin.json`, `mcp.json` | ChatGPT plugin package in the Agent Plugins format (`node scripts/build-chatgpt.mjs` builds the upload) |
+| `server.json` | Entry for the [official MCP Registry](https://registry.modelcontextprotocol.io) |
 | `scripts/validate.mjs` | Checks that every manifest lists the same skills and server |
 
 ## Privacy and support

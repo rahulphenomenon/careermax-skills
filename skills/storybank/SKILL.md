@@ -1,6 +1,6 @@
 ---
 name: storybank
-description: Builds and strengthens the user's CareerMax Storybank. Reads their résumé and existing stories, suggests the specific questions worth answering next (grounded in their real roles, filling gaps across story types), interviews them one question at a time, coaches each story on evidence, ownership, structure and outcome, and saves approved STAR stories to CareerMax. Also finds the right story for an interview question. Not a mock interview. Use for "build my Storybank", "help me write my stories", "prepare behavioral examples", "improve my story about X", "which story should I use for this question", or capturing achievements.
+description: Builds and strengthens the user's CareerMax Storybank. Reads their resume and existing stories, suggests the specific questions worth answering next (grounded in their real roles, filling gaps across story types), interviews them one question at a time, coaches each story on evidence, ownership, structure and outcome, and saves approved STAR stories to CareerMax. Also finds the right story for an interview question. Not a mock interview. Use for "build my Storybank", "help me write my stories", "prepare behavioral examples", "improve my story about X", "which story should I use for this question", or capturing achievements.
 license: MIT
 compatibility: Requires the CareerMax MCP server (https://mcp.careermax.ai/mcp) connected with the user's CareerMax account.
 ---

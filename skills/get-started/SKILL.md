@@ -1,6 +1,6 @@
 ---
 name: get-started
-description: Sets up CareerMax in one pass — takes the user's résumé (or a description of their experience), drafts their whole profile including every detail Auto Apply needs, shows it once for approval, saves it with one call, shows today's best jobs, then sets up the two daily briefs at times the user picks. Use for "help me find a job", "set up CareerMax", "start my job search", "get started with CareerMax", or when CareerMax says setup is missing.
+description: Sets up CareerMax in one pass — takes the user's resume (or a description of their experience), drafts their whole profile including every detail Auto Apply needs, shows it once for approval, saves it with one call, shows today's best jobs, then sets up the two daily briefs at times the user picks. Use for "help me find a job", "set up CareerMax", "start my job search", "get started with CareerMax", or when CareerMax says setup is missing.
 license: MIT
 compatibility: Requires the CareerMax MCP server (https://mcp.careermax.ai/mcp) connected with the user's CareerMax account.
 ---
