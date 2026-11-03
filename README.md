@@ -107,7 +107,7 @@ Then sign in from a terminal with `hermes mcp login careermax` and ask Hermes fo
 | --- | --- |
 | Setup | `get_account_overview`, `complete_setup`, `get_resume`, `save_resume`, `save_job_preferences`, `save_application_profile`, `claim_applicant_email`, `set_daily_outreach` |
 | Jobs | `get_todays_jobs`, `show_job_picker`, `find_more_jobs`, `update_jobs`, `add_job_from_link` |
-| Applications | `apply_to_jobs`, `get_job_applications`, `get_application`, `answer_application`, `submit_application`, `cancel_application` |
+| Applications | `apply_to_jobs`, `get_job_applications`, `read_application`, `get_application`, `answer_application`, `submit_application`, `cancel_application` |
 | People | `find_people_at_company`, `find_outreach_contacts` |
 | Inbox | `get_employer_emails`, `reply_to_employer_email` |
 | Interviews | `list_interview_stories`, `save_interview_story`, `research_company_for_interview` |
