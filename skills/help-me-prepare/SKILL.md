@@ -10,7 +10,7 @@ compatibility: Requires the CareerMax MCP server (https://mcp.careermax.ai/mcp) 
 ## Gather
 
 1. Pin down company, role, date, stage and interviewer. If a calendar is connected, read the event's attendees and description. Ask only for what's still missing, in one message.
-2. Read their side: `list_interview_stories`, and the posting from `get_job_applications` / `get_application` if the job came through CareerMax. Use `get_resume` when you need their background.
+2. Read their side: `list_interview_stories`, and the posting from `get_job_applications` / `read_application` if the job came through CareerMax. Use `get_resume` when you need their background.
 3. Research with web search. It's free for the user. Run these, in order, and stop when you have enough:
    - The company: what it sells, to whom, business model, stage or size, last 12 months of news (funding, launches, leadership, layoffs).
    - The role and team: the posting, the team's product area, recent launches or public talks from people on that team.

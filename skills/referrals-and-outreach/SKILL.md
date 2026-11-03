@@ -9,7 +9,7 @@ compatibility: Requires the CareerMax MCP server (https://mcp.careermax.ai/mcp) 
 
 ## Referral after applying
 
-1. Call `get_application` for the submitted application and pass only its `pipelineJobId` to `find_people_at_company` with mode `referral`. Don't add company, companyDomain or targetRole; CareerMax reads them from the application. If the application has no `pipelineJobId`, use mode `outreach` with the company name or domain instead. It costs 1 credit and is refunded when nobody is found; the user agreed when they said yes to the offer.
+1. Call `read_application` for the submitted application and pass only its `pipelineJobId` to `find_people_at_company` with mode `referral`. Don't add company, companyDomain or targetRole; CareerMax reads them from the application. If the application has no `pipelineJobId`, use mode `outreach` with the company name or domain instead. It costs 1 credit and is refunded when nobody is found; the user agreed when they said yes to the offer.
 2. Pick the best one to three people and say why in a line each: same team or function first, then the hiring manager's org, then a recruiter. Skip anyone without an email unless the user wants LinkedIn text.
 3. Draft the note (see Writing). Show the recipient, subject and body.
 4. Sending:
