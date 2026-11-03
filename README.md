@@ -35,7 +35,7 @@ Every workflow has the same shape: your assistant proposes, you decide, CareerMa
 | **"Build my Storybank"** | A short conversation that turns your past wins into reusable interview stories. |
 | **"Help me prepare for my interview on Thursday"** | A one-screen brief: the company, likely questions and which of your stories to use. |
 
-You stay in charge. CareerMax only applies to jobs you pick, never submits without your approval unless you turned off **Review before submit** in the app, and never sends a message you haven't approved. Credits are shown before anything is spent: an application costs 1 credit, a contact search 1 (refunded when nobody is found), each daily outreach company 1 (free when nobody is found), and company research 5.
+You stay in charge. CareerMax only applies to jobs you pick, never submits without your approval unless you turned off **Review before submit** in the app, and never sends a message you haven't approved. Credits are shown before anything is spent: an application costs 1 credit, a contact search 1 (refunded when nobody is found) and each daily outreach company 1 (free when nobody is found). Interview research and your Storybank are free.
 
 ## Install
 
@@ -50,7 +50,7 @@ You need a CareerMax account. If you don't have one, you can create it when you 
 
 The plugin adds the six skills below on top of the connector. Without them Claude still knows the workflows from the server.
 
-To get your brief every morning on a paid Claude plan, open **Scheduled**, create a new task with the prompt *Run my CareerMax job search brief*, and pick a time. On a free plan, say the prompt each morning instead.
+On a paid Claude plan, setup schedules two weekday briefs at times you pick: *Run my CareerMax apply brief* in the evening (6-9 PM) and *Run my CareerMax outreach brief* in the morning (9-11 AM). To add them yourself, open **Scheduled** and create a task for each. On a free plan, say either prompt when you want it.
 
 **Claude Code**
 ```bash
@@ -64,7 +64,7 @@ To get your brief every morning on a paid Claude plan, open **Scheduled**, creat
 2. Sign in to CareerMax when asked.
 3. Say **"@CareerMax run my job search brief"**. Pick jobs in the card that opens beside the chat.
 
-Ask ChatGPT to run your job search brief every morning to create a scheduled task. In ChatGPT Work you can also ask CareerMax to let you know when an application needs you.
+Ask ChatGPT to schedule your apply brief in the evening and your outreach brief in the morning. In ChatGPT Work you can also ask CareerMax to let you know when an application needs you.
 
 ### Muse
 

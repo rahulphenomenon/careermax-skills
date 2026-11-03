@@ -13,9 +13,9 @@ compatibility: Requires the CareerMax MCP server (https://mcp.careermax.ai/mcp) 
 2. Pick the best one to three people and say why in a line each: same team or function first, then the hiring manager's org, then a recruiter. Skip anyone without an email unless the user wants LinkedIn text.
 3. Draft the note (see Writing). Show the recipient, subject and body.
 4. Sending:
-   - Gmail connected: send after the user approves the exact text and recipient. If they want to edit first, create a draft instead.
+   - Gmail connected: send after the user approves the exact text and recipient. If they want to edit first, or it's evening (the apply brief), create a draft; the morning outreach brief offers to send drafts during the recipient's working day.
    - No Gmail: give the text ready to copy, with the email address.
-   Never send without explicit approval of that specific message.
+   Never send without explicit approval of that specific message, and never on a scheduled run.
 
 ## Outreach to companies
 
