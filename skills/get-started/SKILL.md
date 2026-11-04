@@ -29,7 +29,7 @@ If `get_resume` already has one, show it for review instead of asking.
 
 **2. Résumé.** Build it in `get_resume`'s schema from what they share plus what you know about them. Without a résumé, ask for their last two or three roles (title, company, dates, what they did; rough notes are fine). Never invent facts. Show a 4-6 line summary (name and headline, roles with one achievement each, education, skills) and ask them to check it. On "looks good", call `save_resume`.
 
-**3. PDF and username** (one message). Check a handle from their name first with `claim_applicant_email` (`claim: false`).
+**3. PDF and username** (one message). Check a handle from their name first with `check_username`.
 
 > Saved. Here's your résumé as a PDF: **<link>**. It's formatted so employer systems read it accurately, and I'll use CareerMax to tailor it for each job.
 >
