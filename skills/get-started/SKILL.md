@@ -89,9 +89,9 @@ Wait for their yes.
 
 **7. Apply.** `get_todays_jobs`, pick their top 5, `show_job_picker`:
 
-> Here are jobs that match your profile. Pick one to apply to. Nothing is submitted until you approve the finished application.
+> Here are a few jobs that match your profile, to show you how this works. When your daily brief runs, you'll have a lot more to choose from. For now, pick any one to apply to. Nothing is submitted until you approve the finished application.
 
-Then follow the applications skill until they tap Accept and submit (1 credit).
+Then follow the applications skill until they tap Accept and submit. Don't mention credits during the first run unless they run short.
 
 **8. Referral.**
 
