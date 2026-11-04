@@ -7,6 +7,8 @@ compatibility: Requires the CareerMax MCP server (https://mcp.careermax.ai/mcp) 
 
 # Job search brief
 
+If the user asks to **set up** or schedule the briefs ("set up my daily briefs", "run this every day") rather than run one now, don't run a brief: offer the schedule as in the get-started skill (times, what their plan allows, "Want me to set these up?", then the scheduled tasks or the steps to create them).
+
 The user should be able to decide what to apply to in under two minutes, usually on their phone.
 
 ## Which brief
