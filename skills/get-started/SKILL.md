@@ -79,7 +79,12 @@ Fill each line from the résumé and anything the user has told you; ask only fo
 >
 > Weekdays, <their time zone>. Want me to set these up?
 
-They can pick 6-9 PM and 9-11 AM. On yes, create two scheduled tasks: *Run my CareerMax apply brief* and *Run my CareerMax outreach brief*. If you can't create scheduled tasks here (they need a paid Claude plan), give them the two prompts to use any time. Then:
+They can pick 6-9 PM and 9-11 AM. In the same message, say what their plan allows (from `get_account_overview`):
+
+- **Free plan:** the briefs need a CareerMax plan to keep finding new jobs and people after this first run; give the upgrade link.
+- **No credits left:** the job brief still shows new jobs (they don't use credits), but applying, referrals and outreach need credits; give the get-credits link.
+
+End with "Want me to set these up?" and wait. On yes, create two scheduled tasks if you can: *Run my CareerMax apply brief* and *Run my CareerMax outreach brief*. If you can't create scheduled tasks here, give the steps: open **Scheduled** in the sidebar → **New task** → **Set up manually** → name it, paste the prompt, choose **Weekdays** and the time → **Create** (once per brief). Scheduled runs don't stop for approvals, so a brief never applies, submits or sends on its own. On no, say they can ask any time. Then:
 
 > Ready to start your job search? I'll show you how this works going forward with one real application.
 
