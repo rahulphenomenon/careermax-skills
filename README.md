@@ -61,11 +61,11 @@ On a paid Claude plan, setup schedules two weekday briefs at times you pick: *Ru
 
 ### ChatGPT
 
-1. Find **CareerMax** in the ChatGPT plugins directory and install it. Until the listing is live, open **Settings → Apps**, turn on **Developer mode** under Advanced settings, choose **Create app** and paste `https://mcp.careermax.ai/mcp`.
-2. Sign in to CareerMax when asked.
-3. Say **"@CareerMax run my job search brief"**. Pick jobs in the card that opens beside the chat.
+1. Find **CareerMax** in the ChatGPT plugins directory and install it. Until the listing is live, open **Plugins → Add → Add custom MCP server**, name it CareerMax, paste `https://mcp.careermax.ai/mcp` as the **Server URL**, keep **OAuth**, tick **I understand and want to continue** and choose **Create as a plugin**.
+2. Select **Connect CareerMax**, sign in, then **Allow**. Under **Plugins → Manage → CareerMax**, set **Permission** to **Allow read-only tools** so ChatGPT asks before changes instead of blocking them.
+3. Say **"Help me find a job with CareerMax"**. Cards open beside the chat.
 
-Ask ChatGPT to schedule your apply brief in the evening and your outreach brief in the morning. In ChatGPT Work you can also ask CareerMax to let you know when an application needs you.
+After setup, ChatGPT offers to create your apply brief (evening) and outreach brief (morning) as scheduled tasks. In ChatGPT Work you can also ask CareerMax to let you know when an application needs you.
 
 ### Muse
 
