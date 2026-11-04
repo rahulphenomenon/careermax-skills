@@ -40,7 +40,7 @@ If `needsYou.applications` > 0, call `get_job_applications` and give each one a 
 
 ## Referrals (apply brief)
 
-For applications submitted since the last brief, offer referral notes: find one to three people with `find_people_at_company` (mode referral; 1 credit each, refunded when nobody is found — ask before running more than one) and draft each note. With Gmail connected, save them as **drafts** for the morning brief to send; otherwise give copy-ready text.
+For applications submitted since the last brief, offer referral notes: find people with `find_people_at_company` (mode referral; 1 credit each, refunded when nobody is found; ask before running more than one) and show them with `show_people_picker`. Draft notes for the people they pick with `show_outreach_notes`. Never send on a scheduled run.
 
 ## Outreach (outreach brief and full brief, when it's on)
 
@@ -56,7 +56,7 @@ For applications submitted since the last brief, offer referral notes: find one 
 
 - People order: hiring manager or team lead in their function, then senior peers, then recruiters. Skip anyone without an email unless nobody else fits.
 - Offer one note: "Want me to draft a note to Priya?" Under 120 words, one concrete link to their experience, an easy ask, signed with their name.
-- In the morning brief, also list referral and outreach drafts waiting in Gmail and offer to send each after they approve the exact text.
+- In the morning brief, offer to send referral and outreach notes they approved but haven't sent yet (`send_outreach_email`, one person at a time), during the recipient's working day.
 
 ## Inbox (outreach brief)
 
