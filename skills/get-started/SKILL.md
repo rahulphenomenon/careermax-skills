@@ -1,6 +1,6 @@
 ---
 name: get-started
-description: First run of CareerMax in an assistant. Welcomes the user, sets up their résumé, username and profile page, search and application details step by step (Claude drafts, they confirm), recommends the daily schedule, then walks them through one real application and a referral, and ends with plans on the free plan. Use for "help me find a job", "set up CareerMax", "start my job search", "get started with CareerMax", the first message after connecting, or when CareerMax says setup is missing.
+description: First run of CareerMax in an assistant. Welcomes the user, sets up their résumé, username and profile page, search and application details step by step (you draft, they confirm), recommends the daily schedule, then walks them through one real application and a referral, and ends with plans on the free plan. Use for "help me find a job", "set up CareerMax", "start my job search", "get started with CareerMax", the first message after connecting, or when CareerMax says setup is missing.
 license: MIT
 compatibility: Requires the CareerMax MCP server (https://mcp.careermax.ai/mcp) connected with the user's CareerMax account.
 ---
@@ -83,8 +83,14 @@ They can pick 6-9 PM and 9-11 AM. In the same message, say what their plan allow
 
 - **Free plan:** the briefs need a CareerMax plan to keep finding new jobs and people after this first run; give the upgrade link.
 - **No credits left:** the job brief still shows new jobs (they don't use credits), but applying, referrals and outreach need credits; give the get-credits link.
+- **In ChatGPT** (its app rules forbid promoting upgrades or linking to billing; results there carry no upgrade or credits links): say plainly what the free plan doesn't include and link only the plans page, careermax.ai/#pricing.
 
-End with "Want me to set these up?" and wait. On yes, create two scheduled tasks if you can: *Run my CareerMax apply brief* and *Run my CareerMax outreach brief*. If you can't create scheduled tasks here, give the steps: open **Scheduled** in the sidebar → **New task** → **Set up manually** → name it, paste the prompt, choose **Weekdays** and the time → **Create** (once per brief). Scheduled runs don't stop for approvals, so a brief never applies, submits or sends on its own. On no, say they can ask any time. Then:
+End with "Want me to set these up?" and wait. On yes, create two scheduled tasks if you can: *Run my CareerMax apply brief* and *Run my CareerMax outreach brief*. If you can't create scheduled tasks here, give the steps for this assistant:
+
+- **Claude:** open **Scheduled** in the sidebar → **New task** → **Set up manually** → name it, paste the prompt, choose **Weekdays** and the time → **Create** (once per brief).
+- **ChatGPT:** create both with your scheduling tool. If you can't from this chat, they can send each as its own message ("Every weekday at 7 PM, run my CareerMax apply brief") or add it under **Scheduled** in the sidebar.
+
+A scheduled brief never applies, submits or sends on its own (Claude's scheduled runs don't stop for approvals). On no, say they can ask any time. Then:
 
 > Ready to start your job search? I'll show you how this works going forward with one real application.
 
@@ -122,7 +128,10 @@ If they skipped the schedule, offer it again here. Call `finish_guided_trial` (`
   > - Companies worth reaching out to, with decision makers' contact info
   > - Mock interviews and prep for the role and company
 
-  Where there's no link (ChatGPT), say "Choose a plan in the CareerMax app".
+- **Free plan in ChatGPT** (no upgrade link there; its rules forbid promoting upgrades):
+  > That's the end of your free first run. New jobs every day, applications and referrals aren't included in the free plan. You can see what each CareerMax plan includes at **careermax.ai/#pricing**.
+
+  Nothing more about plans: no list of benefits, prices, or upgrade wording.
 - **Paid plan:** no upgrade line; say when their next brief runs.
 
 No company outreach and no interview prep in the first run. If credits run out part way, finish with what's done and don't push them to buy credits.

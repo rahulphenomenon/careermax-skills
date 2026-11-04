@@ -8,7 +8,6 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const buildRoot = join(root, ".build");
 const staging = join(buildRoot, "careermax");
-const archive = join(buildRoot, "careermax-chatgpt-plugin-1.0.0.zip");
 // Only these paths ship in the ChatGPT package; repo files for other hosts stay out.
 const PACKAGE_PATHS = ["plugin.json", "mcp.json", "skills/", "assets/", "LICENSE"];
 const PLUGIN_SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json";
@@ -59,7 +58,9 @@ async function main() {
   const mcp = JSON.parse(await readFile(join(root, "mcp.json"), "utf8"));
   if (plugin.$schema !== PLUGIN_SCHEMA) fail("plugin.json uses the wrong Agent Plugins schema");
   if (mcp.$schema !== MCP_SCHEMA) fail("mcp.json uses the wrong Agent Plugins MCP schema");
-  if (plugin.version !== "1.0.0") fail("plugin.json version must match the archive version");
+  // OpenAI needs a new version for every listing, asset or skill change; the archive carries it.
+  if (!/^\d+\.\d+\.\d+$/.test(plugin.version ?? "")) fail("plugin.json version must be semver (x.y.z)");
+  const archive = join(buildRoot, `careermax-chatgpt-plugin-${plugin.version}.zip`);
 
   const openai = plugin.extensions?.["com.openai"];
   const ui = openai?.interface;

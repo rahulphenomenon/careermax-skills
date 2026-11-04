@@ -14,7 +14,7 @@ CareerMax fills the employer's form in a cloud browser, which takes a few minute
 - Call `apply_to_jobs` with the chosen item IDs, then `wait_for_application` with each applicationId, and call it again while the application is still preparing. Act on what it returns without being asked: draft the answers, or review it. Never ask the user to check back.
 - Call `apply_to_jobs` once per job: a job that failed can't be started again.
 - A direct request for something that costs credits ("apply to these", "find someone at Ramp") is the go-ahead; mention the cost in a line. When the user taps Apply in the picker, the card sends their message ("Apply to these 2 jobs: …") with the exact `apply_to_jobs` call in context; make that call as given.
-- `insufficient_credits`: relay the message and both links (upgrade plan, buy credits). Say nothing was started only when `started` is empty; otherwise name the applications that did start and say the rest need credits.
+- `insufficient_credits`: relay the message and the links it gives (upgrade plan, buy credits; ChatGPT results have none, so say they can manage their plan in the CareerMax app). Say nothing was started only when `started` is empty; otherwise name the applications that did start and say the rest need credits.
 - `needs_setup`: fix the missing steps with the get-started skill, then retry. As above, list anything in `started` before saying the rest are waiting on setup.
 - A job skipped as `finish_in_app` needs the user's employer account password; tell them to finish that one in the CareerMax app.
 - Tell the user once how review works for them, from `reviewBeforeSubmit`:
@@ -42,7 +42,7 @@ The applications card is a row of slides, one per application that needs the use
   - **Can't send right now:** if the result says CareerMax can't send it, say it's saved and ready, and that they can finish it on the employer site or you can fill it in for them if you can control a browser. Don't guess why or when.
 - **Queued and in progress** update live on their slides; no need to poll or narrate.
 - **An older card or a changed application:** if a save or submit says the application changed, call `read_application` and show the latest card. Cards check the latest state before acting, so a button on an old card updates that card instead of acting on stale data.
-- **Failed or action needed:** say plainly that something went wrong (or what the employer site needs) and that nothing was sent. Show the card (`get_application`): it lists what CareerMax prepared (answers, résumé, cover letter) and offers "Apply on <site>". Offer to fill it in for them if you can control a browser (for example Claude in Chrome), using those answers and documents; otherwise they finish it with them. Never start the same job again through CareerMax: it would fail the same way.
+- **Failed or action needed:** say plainly that something went wrong (or what the employer site needs) and that nothing was sent. Show the card (`get_application`): it lists what CareerMax prepared (answers, résumé, cover letter) and offers "Apply on <site>". Only if you can control a browser here (for example Claude in Chrome), offer to fill it in for them with those answers and documents; otherwise they finish it with them, and don't mention it. Never start the same job again through CareerMax: it would fail the same way.
 - **Not confirmed:** CareerMax couldn't confirm it was sent; ask them to check their email or the employer site before applying again.
 
 ## Status questions
