@@ -20,7 +20,7 @@ CareerMax fills the employer's form in a cloud browser, which takes a few minute
 - Tell the user once how review works for them, from `reviewBeforeSubmit`:
   - On: "You'll review each application before it's sent."
   - Off: "CareerMax will submit routine applications and pause for anything unusual."
-  This is an app setting (Profile → Preferences → Review before submit). Don't offer to change it from chat.
+  This is an app setting (the CareerMax app: Profile → Settings; or Settings → Applications on the web). Don't offer to change it from chat.
 
 ## When the user is needed
 

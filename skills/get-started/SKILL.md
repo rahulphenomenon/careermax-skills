@@ -7,7 +7,7 @@ compatibility: Requires the CareerMax MCP server (https://mcp.careermax.ai/mcp) 
 
 # Get started
 
-Call `get_account_overview` first. Skip any step the user has already done (a résumé saved, a username claimed, setup complete, a first application sent). If `signup_agreement` is missing, ask them to accept the terms at careermax.ai first.
+Call `get_account_overview` first. Skip any step the user has already done (a résumé saved, a username claimed, setup complete, a first application sent). If a CareerMax result says the Terms need accepting, share the Terms and Privacy links it gives, ask for their yes, and call `accept_terms` only on that yes.
 
 One step per message. Short, warm, scannable on a phone. Never open with a status report ("nothing is set up", a list of what's missing).
 
