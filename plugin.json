@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "careermax",
-  "version": "1.0.0",
-  "description": "Run your job search from your AI assistant: daily ranked jobs, applications with live status, referral and outreach drafts, Storybank and interview prep.",
+  "version": "1.1.0",
+  "description": "Run your job search from your AI assistant: daily job matches ranked against your resume, applications filled out for you, referrals and outreach, interview prep and a Storybank.",
   "author": {
     "name": "Ramen Labs LLC",
     "email": "support@careermax.ai",
@@ -11,12 +11,16 @@
   "homepage": "https://careermax.ai/ai-agent",
   "license": "MIT",
   "keywords": [
-    "jobs",
     "job search",
-    "applications",
+    "jobs",
+    "job applications",
+    "apply to jobs",
+    "resume",
     "career",
-    "interviews",
-    "referrals"
+    "interview prep",
+    "referrals",
+    "networking",
+    "mcp"
   ],
   "extensions": {
     "com.openai": {
@@ -24,11 +28,11 @@
       "interface": {
         "displayName": "CareerMax",
         "shortDescription": "Run your job search",
-        "longDescription": "CareerMax finds new jobs for you every day. ChatGPT ranks them against your experience and explains each match, you pick the ones you want, and CareerMax fills out the applications while you watch progress live. Answer any employer questions in chat, review before anything is sent, get help reaching people at the company, build your Storybank and prepare for interviews. Nothing is submitted or sent without your approval or your Review before submit setting.",
+        "longDescription": "CareerMax finds new jobs for you every day. ChatGPT shows your top 5 against your experience and explains each match, every other match is a tap away, and you can find more whenever you want. Pick the ones you want and CareerMax fills out the applications while you watch progress live. Answer any employer questions in chat, review before anything is sent, find people at the company for a referral, build your Storybank and prepare for interviews. Nothing is submitted or sent without your approval or your Review before submit setting.",
         "developerName": "Ramen Labs LLC",
         "category": "Productivity",
         "capabilities": [
-          "Daily ranked job matches",
+          "Daily job matches ranked for you",
           "Applications with live status",
           "Answer and review applications",
           "Referral and outreach contacts",
@@ -40,9 +44,9 @@
         "privacyPolicyURL": "https://careermax.ai/privacy",
         "termsOfServiceURL": "https://careermax.ai/terms",
         "defaultPrompt": [
+          "Help me find a job with CareerMax",
           "Run my CareerMax job search brief",
-          "Which of my applications need me?",
-          "Help me prepare for my next interview"
+          "Which of my job applications need me?"
         ],
         "brandColor": "#171717",
         "composerIcon": "./assets/icon.svg",
@@ -52,34 +56,34 @@
         "test_cases": {
           "positive": [
             {
+              "description": "First run for a new CareerMax account: welcome, then start setup with the résumé.",
+              "prompt": "Help me find a job with CareerMax.",
+              "tools_triggered": "get_account_overview, get_resume",
+              "expected_behavior": "The assistant reads the account, sees setup is missing, welcomes the user in a few lines, lists what it needs (résumé, what they're looking for, application details, a username) and asks for their résumé. It saves nothing until the user confirms."
+            },
+            {
               "description": "Show today's jobs ranked for the user and let them choose what to apply to.",
               "prompt": "What's new in my CareerMax job search today?",
               "tools_triggered": "get_account_overview, get_todays_jobs, show_job_picker",
-              "expected_behavior": "The assistant reads the account and today's jobs, scores each job against the user's real experience, shows the ranked picker card, and summarizes the top matches in a few lines without applying to anything."
+              "expected_behavior": "The assistant reads today's jobs, picks the user's top 5 against their real experience, shows the picker card with every other match under View all, and adds a few lines on what stands out. It applies to nothing."
             },
             {
-              "description": "Start applications for jobs the user names.",
-              "prompt": "Apply to the top two jobs from today's list.",
-              "tools_triggered": "get_todays_jobs, apply_to_jobs",
-              "expected_behavior": "The assistant starts exactly the two named applications, reports credits used and how review works for the user, and shows live status. Nothing else is applied to."
+              "description": "Apply to a job the user names and follow the application.",
+              "prompt": "Apply to the top job from today's list.",
+              "tools_triggered": "get_todays_jobs, apply_to_jobs, wait_for_application",
+              "expected_behavior": "The assistant starts exactly that one application, shows its live status, and follows it. When CareerMax needs answers it drafts them and shows them for the user to accept; with Review before submit on, nothing is sent until the user approves the finished application."
             },
             {
               "description": "Report which applications need the user.",
               "prompt": "Which of my CareerMax applications need me right now?",
               "tools_triggered": "get_job_applications",
-              "expected_behavior": "The assistant lists only the user's applications that need input or review, one line each, and offers to open one."
-            },
-            {
-              "description": "Prepare for an interview with company research and the user's stories.",
-              "prompt": "Help me prepare for my interview with Acme for the Product Manager role on Thursday.",
-              "tools_triggered": "research_company_for_interview, list_interview_stories",
-              "expected_behavior": "The assistant states the research cost, runs CareerMax research, reads the Storybank and gives a one-screen brief with likely questions mapped to the user's stories."
+              "expected_behavior": "The assistant shows only the user's applications that need answers or review, drafts what it can, and asks for the user's go-ahead. It submits nothing."
             },
             {
               "description": "Find people at a company for a referral after applying.",
               "prompt": "Find someone at Acme who could refer me for the job I applied to.",
-              "tools_triggered": "get_application, find_people_at_company",
-              "expected_behavior": "The assistant mentions the 1-credit cost, finds contacts for the submitted application, suggests one to three people with reasons and drafts a short note for the user to approve. It sends nothing."
+              "tools_triggered": "get_job_applications, find_people_at_company, show_people_picker",
+              "expected_behavior": "The assistant finds people at the company for the user's application, shows them in a card with a short reason each, and drafts notes for the people the user picks. It sends nothing unless the user asks to send a specific email."
             }
           ],
           "negative": [
@@ -103,7 +107,7 @@
         "commerce": false
       },
       "publication": {
-        "release_notes": "CareerMax for ChatGPT: daily ranked jobs, applications with live status and in-chat review, referral and outreach help, Storybank and interview preparation."
+        "release_notes": "Guided first run (résumé, username, search and application details), a sample job picker and one real application with drafted answers and review, then a referral with drafted notes. Daily briefs can run as ChatGPT scheduled tasks."
       }
     }
   }

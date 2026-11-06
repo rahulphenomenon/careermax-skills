@@ -1,15 +1,37 @@
 {
   "name": "careermax",
-  "owner": { "name": "Ramen Labs LLC", "email": "support@careermax.ai" },
-  "metadata": { "description": "CareerMax plugins for running your job search from an AI assistant." },
+  "owner": {
+    "name": "Ramen Labs LLC",
+    "email": "support@careermax.ai"
+  },
+  "metadata": {
+    "description": "CareerMax: run your job search from Claude. Job matches, applications, referrals and interview prep."
+  },
   "plugins": [
     {
       "name": "careermax",
       "source": "./",
-      "description": "Daily ranked jobs, one-tap applications with live status, referral and outreach drafts, Storybank and interview prep.",
-      "version": "1.0.0",
+      "description": "Run your job search from Claude: daily job matches ranked against your resume, applications filled out for you with review before submit, referrals and outreach, interview prep and a Storybank.",
+      "version": "1.1.0",
       "category": "productivity",
-      "homepage": "https://careermax.ai/ai-agent"
+      "homepage": "https://careermax.ai/ai-agent",
+      "keywords": [
+        "job search",
+        "jobs",
+        "job applications",
+        "apply to jobs",
+        "resume",
+        "career",
+        "interview prep",
+        "referrals",
+        "networking",
+        "mcp"
+      ],
+      "tags": [
+        "job-search",
+        "career",
+        "productivity"
+      ]
     }
   ]
 }
