@@ -16,7 +16,7 @@ compatibility: Requires the CareerMax MCP server (https://mcp.careermax.ai/mcp) 
    - The role and team: the posting, the team's product area, recent launches or public talks from people on that team.
    - The process: the company's careers or interview pages, then recent public interview reports. Treat secondhand reports as hints, not facts.
    - The interviewer, if named: public professional background only. Nothing personal.
-   Prefer primary sources (company site, filings, official blog, reputable press). Every claim in the brief carries a source link; if you can't source it, leave it out. If web search isn't available, say so and offer `research_company_for_interview` (5 credits) only with their go-ahead.
+   Prefer primary sources (company site, filings, official blog, reputable press). Every claim in the brief carries a source link; if you can't source it, leave it out. If web search isn't available, say so and build the brief from the posting, their stories and what they tell you.
 
 ## Brief — one screen
 

@@ -34,7 +34,7 @@ Every workflow has the same shape: your assistant proposes, you decide, CareerMa
 | **"Build my Storybank"** | A short conversation that turns your past wins into reusable interview stories. |
 | **"Help me prepare for my interview on Thursday"** | A one-screen brief: the company, likely questions and which of your stories to use. |
 
-You stay in charge. CareerMax only applies to jobs you pick, never submits without your approval unless you turned off **Review before submit** in the app, and never sends a message you haven't approved. Nothing that costs credits runs without your go-ahead: an application costs 1 credit, a contact search 1 (refunded when nobody is found), each daily outreach company 1 (free when nobody is found), and company research 5 (only used when your assistant can't search the web itself; interview prep and the Storybank otherwise use no credits).
+You stay in charge. CareerMax only applies to jobs you pick, never submits without your approval unless you turned off **Review before submit** in the app, and never sends a message you haven't approved. Nothing that costs credits runs without your go-ahead: an application costs 1 credit, a contact search 1 (refunded when nobody is found), and each daily outreach company 1 (free when nobody is found). Interview prep, where your assistant researches the company with its own web search, and the Storybank use no credits.
 
 The free CareerMax plan includes a guided first run: setup, a real application and a referral. New jobs every day, applications and referrals after that need a CareerMax plan.
 
