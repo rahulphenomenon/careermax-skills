@@ -7,7 +7,7 @@
       "name": "careermax",
       "source": "./",
       "description": "Daily ranked jobs, one-tap applications with live status, referral and outreach drafts, Storybank and interview prep.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "productivity",
       "homepage": "https://careermax.ai/ai-agent"
     }
