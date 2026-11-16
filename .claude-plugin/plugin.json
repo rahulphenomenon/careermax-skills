@@ -1,6 +1,6 @@
 {
   "name": "careermax",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Run your job search from Claude: daily job matches ranked against your resume, applications filled out for you with review before submit, referrals and outreach, interview prep and a Storybank.",
   "author": {
     "name": "Ramen Labs LLC",
