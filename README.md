@@ -54,13 +54,13 @@ You need a CareerMax account. If you don't have one, you can create it when you 
 ### Claude
 
 **Claude apps (web, desktop, mobile)**
-1. Open **Customize → Plugins** and add CareerMax. Until the directory listing is live, open **Settings → Connectors → Add custom connector** and paste `https://mcp.careermax.ai/mcp`.
+1. Open **Customize → Plugins** and add CareerMax. Until the directory listing is live, open **Customize → Connectors**, select **+**, choose **Add custom connector**, name it CareerMax and paste `https://mcp.careermax.ai/mcp`.
 2. Sign in to CareerMax when asked.
 3. Say **"Help me find a job"**.
 
 The plugin adds the six skills in `skills/` on top of the connector. Without them Claude still knows the workflows from the server.
 
-To schedule the briefs on a paid Claude plan, open **Scheduled** in the sidebar, choose **New task**, paste *Run my CareerMax apply brief* (or *Run my CareerMax outreach brief*), choose **Weekdays** and the time, then **Create**. Otherwise, say either prompt whenever you like.
+To schedule the briefs on a paid Claude plan, open **Scheduled**, select **New task**, then **Set up manually**, and create one task for each prompt (*Run my CareerMax apply brief* and *Run my CareerMax outreach brief*) on weekdays at the time you want. Otherwise, say either prompt whenever you like.
 
 **Claude Code**
 ```bash
@@ -70,7 +70,7 @@ To schedule the briefs on a paid Claude plan, open **Scheduled** in the sidebar,
 
 ### ChatGPT
 
-1. Find **CareerMax** in the ChatGPT plugins directory and install it. Until the listing is live, open **Settings → Apps**, turn on **Developer mode** under Advanced settings, choose **Create app** and paste `https://mcp.careermax.ai/mcp`.
+1. Find **CareerMax** in the ChatGPT plugins directory and install it. Until the listing is live, open **Plugins** in the sidebar, select **Add**, then **Add custom MCP server**, name it CareerMax, paste `https://mcp.careermax.ai/mcp` as the **Server URL** with **Authentication** left on **OAuth**, then select **Create as a plugin**.
 2. Sign in to CareerMax when asked.
 3. Say **"@CareerMax run my job search brief"**. Pick jobs in the card that opens beside the chat.
 
